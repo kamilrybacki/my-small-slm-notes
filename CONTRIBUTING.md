@@ -25,9 +25,11 @@ context_len: 8192           # required. Integer tokens, or "unknown".
 modality: text              # required. e.g. text, text+vision. May be "unknown".
 release_date: "2024-11-01"  # required. ISO YYYY-MM-DD, or "unknown".
 url: https://huggingface.co/HuggingFaceTB/SmolLM2-360M  # required, real http(s).
-notes:                      # required. Unordered list, >= 1 item.
+quick_facts:                # required. Objective one-liners, >= 1 item.
   - Trained on 4T tokens.
   - Edge-friendly.
+my_experience:              # OPTIONAL. Projects / infra where you use it.
+  - Powers X in project Y.
 quant_available: true       # required. Boolean.
 ```
 

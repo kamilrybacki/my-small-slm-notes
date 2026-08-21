@@ -82,18 +82,20 @@ for (const file of files) {
     seenSlugs.set(expected, file);
   }
 
-  // 5. injection in text fields + notes
+  // 5. injection in text fields + list fields (quick_facts, my_experience)
   for (const f of TEXT_FIELDS) {
     if (typeof doc[f] === 'string' && INJECTION.test(doc[f])) {
       errors.push(`${file}: field '${f}' contains disallowed characters (<, >, or javascript:).`);
     }
   }
-  if (Array.isArray(doc.notes)) {
-    doc.notes.forEach((n, i) => {
-      if (typeof n === 'string' && INJECTION.test(n)) {
-        errors.push(`${file}: notes[${i}] contains disallowed characters (<, >, or javascript:).`);
-      }
-    });
+  for (const listField of ['quick_facts', 'my_experience']) {
+    if (Array.isArray(doc[listField])) {
+      doc[listField].forEach((n, i) => {
+        if (typeof n === 'string' && INJECTION.test(n)) {
+          errors.push(`${file}: ${listField}[${i}] contains disallowed characters (<, >, or javascript:).`);
+        }
+      });
+    }
   }
 
   models.push(doc);

@@ -3,7 +3,7 @@
 // free-recalls params/license/context/date — it reads them from the HF API and
 // the model's config.json, then writes one conforming data/<slug>.yaml per model.
 //
-// Curated fields (notes, modality, quant_available, active_params) come from
+// Curated fields (quick_facts, my_experience, modality, quant_available, active_params) come from
 // scripts/models.manifest.json. Load-bearing facts come from HF.
 //
 // Usage:
@@ -70,7 +70,10 @@ function toEntry(id, curated, facts) {
     modality: curated.modality || 'text',
     release_date: facts.release_date,
     url: `https://huggingface.co/${id}`,
-    notes: curated.notes,
+    quick_facts: curated.quick_facts,
+    ...(Array.isArray(curated.my_experience) && curated.my_experience.length
+      ? { my_experience: curated.my_experience }
+      : {}),
     quant_available: curated.quant_available ?? false,
   };
   return { name, entry };

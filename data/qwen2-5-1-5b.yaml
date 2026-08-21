@@ -5,7 +5,7 @@ context_len: 131072
 modality: text
 release_date: 2024-09-15
 url: https://huggingface.co/Qwen/Qwen2.5-1.5B
-notes:
+quick_facts:
   - Popular sweet-spot for local assistants.
   - Solid coding and math for a sub-2B model.
 quant_available: true

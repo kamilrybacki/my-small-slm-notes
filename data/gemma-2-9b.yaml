@@ -5,7 +5,7 @@ context_len: unknown
 modality: text
 release_date: 2024-06-24
 url: https://huggingface.co/google/gemma-2-9b
-notes:
+quick_facts:
   - Knowledge-distilled from larger Gemma teachers.
   - Competitive with much larger models on many benchmarks.
 quant_available: true

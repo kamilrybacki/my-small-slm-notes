@@ -12,7 +12,7 @@
     "modality",
     "release_date",
     "url",
-    "notes",
+    "quick_facts",
     "quant_available"
   ],
   "properties": {
@@ -62,11 +62,17 @@
       "pattern": "^https?://",
       "description": "Real HF / repo URL. Never 'unknown'."
     },
-    "notes": {
+    "quick_facts": {
       "type": "array",
       "minItems": 1,
       "items": { "type": "string", "minLength": 1 },
-      "description": "Unordered list of editorial one-liners."
+      "description": "Required. Objective one-liners about the model."
+    },
+    "my_experience": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "description": "Optional. Personal usage — projects/infra where this model is used."
     },
     "quant_available": {
       "type": "boolean",

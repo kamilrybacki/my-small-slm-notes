@@ -24,6 +24,6 @@ test('every data file matches slug(name) and buckets cleanly', () => {
     assert.ok(!slugs.has(stem), `${f}: duplicate slug`);
     slugs.add(stem);
     assert.doesNotThrow(() => bucketOf(doc.params), `${f}: params must bucket`);
-    assert.ok(Array.isArray(doc.notes) && doc.notes.length > 0, `${f}: notes list required`);
+    assert.ok(Array.isArray(doc.quick_facts) && doc.quick_facts.length > 0, `${f}: quick_facts list required`);
   }
 });
