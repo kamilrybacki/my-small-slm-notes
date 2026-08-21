@@ -1,9 +1,9 @@
 name: Qwen2.5-1.5B
-params: 1.5
-license: Apache-2.0
-context_len: 32768
+params: 1.54
+license: apache-2.0
+context_len: 131072
 modality: text
-release_date: "2024-09-19"
+release_date: 2024-09-15
 url: https://huggingface.co/Qwen/Qwen2.5-1.5B
 notes:
   - Popular sweet-spot for local assistants.

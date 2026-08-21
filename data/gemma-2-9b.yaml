@@ -1,9 +1,9 @@
-name: Gemma-2-9B
+name: gemma-2-9b
 params: 9.24
-license: Gemma
-context_len: 8192
+license: gemma
+context_len: unknown
 modality: text
-release_date: "2024-06-27"
+release_date: 2024-06-24
 url: https://huggingface.co/google/gemma-2-9b
 notes:
   - Knowledge-distilled from larger Gemma teachers.

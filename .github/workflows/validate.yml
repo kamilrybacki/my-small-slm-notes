@@ -4,15 +4,12 @@ name: Validate data
 # that main's branch protection gates on. It also runs on hermes/** pushes so
 # the check is present on the head SHA even if the PR was opened by GITHUB_TOKEN
 # (which does not re-trigger pull_request workflows).
+# No paths filter on pull_request: a REQUIRED check that gets skipped by a path
+# filter blocks the PR forever ("Expected — waiting for status"). The job is
+# seconds long — always run it. Keep push:hermes/** so the check lands on the
+# head SHA even when GITHUB_TOKEN opened the PR (it doesn't re-trigger PR runs).
 on:
   pull_request:
-    paths:
-      - 'data/**'
-      - 'schema/**'
-      - 'scripts/**'
-      - 'src/**'
-      - 'test/**'
-      - 'package.json'
   push:
     branches:
       - 'hermes/**'
@@ -21,7 +18,7 @@ permissions:
   contents: read
 
 jobs:
-  validate:
+  validate-data:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

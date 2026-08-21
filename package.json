@@ -8,7 +8,8 @@
     "build": "node scripts/build.mjs",
     "validate": "node scripts/validate.mjs",
     "test": "node --test",
-    "preview": "npm run build && node -e \"console.log('open dist/index.html')\""
+    "preview": "npm run build && node -e \"console.log('open dist/index.html')\"",
+    "hf-sync": "node scripts/hf-sync.mjs"
   },
   "dependencies": {
     "ajv": "^8.17.1",

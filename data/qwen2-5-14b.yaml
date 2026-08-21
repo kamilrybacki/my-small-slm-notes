@@ -1,11 +1,11 @@
 name: Qwen2.5-14B
 params: 14.77
-license: Apache-2.0
+license: apache-2.0
 context_len: 131072
 modality: text
-release_date: "2024-09-19"
+release_date: 2024-09-15
 url: https://huggingface.co/Qwen/Qwen2.5-14B
 notes:
   - Apache-2.0 at 14B is unusual and valuable.
-  - 128K context; strong coding and multilingual coverage.
+  - Strong coding and multilingual coverage.
 quant_available: true

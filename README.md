@@ -30,8 +30,8 @@ data/<slug>.yaml  ──(git push)──►  PR  ──(you merge)──►  mai
 Hermes keeps the list fresh:
 
 - **Trigger:** a weekly `agent-cron` **and** on-demand ("add model X" in Discord).
-- **Facts are HuggingFace-grounded** — `params`, `context_len`, `license`, `release_date` come from the HF API / model card, never free-recall. `notes` are editorial.
-- **Write path:** Hermes commits new/updated `data/*.yaml` to a `hermes/update-<date>` branch and `git push`es it using a **write-scoped deploy key** (see setup). It does **not** call `gh`.
+- **Facts are HuggingFace-grounded** via [`scripts/hf-sync.mjs`](scripts/hf-sync.mjs): it reads `params` (`safetensors.total`), `license` (`cardData.license`), `release_date` (`createdAt`) from the HF API and `context_len` (`max_position_embeddings`) from the model's `config.json` — never free-recall. Curated fields (`notes`, `modality`, `quant_available`, `active_params`) live in [`scripts/models.manifest.json`](scripts/models.manifest.json). Gated repos (Llama, Gemma) have no anonymous `config.json`, so `context_len` falls back to the `unknown` sentinel unless an `HF_TOKEN` is provided.
+- **Write path:** Hermes adds the model to the manifest, runs `npm run hf-sync`, commits the resulting `data/*.yaml` to a `hermes/update-<date>` branch and `git push`es it using a **write-scoped deploy key** (see setup). It does **not** call `gh`.
 - `.github/workflows/auto-pr.yml` opens a PR from that branch. **You review and merge.** Nothing reaches `main` (or the public site) without your merge.
 
 ### 2. Manual — you
@@ -57,16 +57,19 @@ Unknown values: soft fields (`license`, `context_len`, `modality`, `release_date
 ### A. GitHub Pages
 Repo **Settings → Pages → Source: GitHub Actions**.
 
-### B. Branch protection on `main` — **required, or the gate is theater**
+### B. Let Actions open PRs (Hermes auto-PR needs this)
+**Settings → Actions → General → Workflow permissions → ✅ "Allow GitHub Actions to create and approve pull requests"** (off by default). Without it `auto-pr.yml` fails with `GitHub Actions is not permitted to create or approve pull requests`.
+
+### C. Branch protection on `main` — **required, or the gate is theater**
 A write deploy key can otherwise push straight to `main` and skip CI. Lock it:
 
 - Settings → Branches → add rule for `main`:
   - ✅ Require a pull request before merging.
-  - ✅ Require status checks to pass → select **Validate data**.
+  - ✅ Require status checks to pass → select **`validate-data`** (the job name in `validate.yml` — required checks match the *job*, not the workflow title).
   - ✅ Do not allow bypassing the above (include administrators, your call).
 - Optional hardening (Rulesets): restrict the deploy key to push only `hermes/*` refs.
 
-### C. Hermes deploy key (write-scoped, this repo only, in Vault)
+### D. Hermes deploy key (write-scoped, this repo only, in Vault)
 ```bash
 ssh-keygen -t ed25519 -f awesome-slms-deploy -N "" -C "hermes-awesome-slms"
 # GitHub: Settings → Deploy keys → Add → paste awesome-slms-deploy.pub → ✅ Allow write access
@@ -87,10 +90,13 @@ git add data/ && git commit -m "chore(data): SLM update" && git push -u origin H
 
 ```bash
 npm install
+npm run hf-sync     # regenerate data/*.yaml from HF (all manifest ids)
+npm run hf-sync Qwen/Qwen2.5-0.5B   # ...or just one id
 npm test            # unit + data-integrity tests
 npm run validate    # run the CI gate locally
 npm run build       # -> dist/index.html + dist/models.json
 ```
+Set `HF_TOKEN=<token>` to ground `context_len` for gated repos (Llama, Gemma).
 
 ## Layout
 
@@ -98,6 +104,8 @@ npm run build       # -> dist/index.html + dist/models.json
 data/            one <slug>.yaml per model (source of truth)
 schema/          JSON Schema for a model entry
 src/lib.mjs      shared pure fns: bucketOf, slugify, dedup, grouping
+scripts/hf-sync.mjs         HF-grounded writer (Hermes's updater)
+scripts/models.manifest.json  which models + curated notes/modality
 scripts/build.mjs      YAML -> dist/index.html + models.json
 scripts/validate.mjs   CI gate
 test/            node:test suites

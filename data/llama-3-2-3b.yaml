@@ -1,11 +1,11 @@
 name: Llama-3.2-3B
 params: 3.21
-license: Llama-3.2-Community
-context_len: 131072
+license: llama3.2
+context_len: unknown
 modality: text
-release_date: "2024-09-25"
+release_date: 2024-09-18
 url: https://huggingface.co/meta-llama/Llama-3.2-3B
 notes:
-  - 128K context; common on-device summarization pick.
+  - Common on-device summarization pick.
   - Instruction-tuned variant widely used for RAG.
 quant_available: true
