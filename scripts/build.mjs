@@ -144,7 +144,13 @@ function main() {
   mkdirSync(DIST, { recursive: true });
   writeFileSync(join(DIST, 'index.html'), page(groups, models.length));
   writeFileSync(join(DIST, 'models.json'), JSON.stringify(models, null, 2));
-  console.log(`Built ${models.length} models -> dist/index.html + dist/models.json`);
+  // Shields.io endpoint badge — live model count on the README.
+  mkdirSync(join(DIST, 'badges'), { recursive: true });
+  writeFileSync(
+    join(DIST, 'badges', 'model-count.json'),
+    JSON.stringify({ schemaVersion: 1, label: 'models', message: String(models.length), color: '7fbbb3' })
+  );
+  console.log(`Built ${models.length} models -> dist/index.html + dist/models.json + badges/model-count.json`);
 }
 
 main();

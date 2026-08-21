@@ -11,14 +11,15 @@ _One YAML file per model · HuggingFace-grounded · auto-curated by a homelab ag
 [![Validate](https://github.com/kamilrybacki/my-small-slm-notes/actions/workflows/validate.yml/badge.svg)](https://github.com/kamilrybacki/my-small-slm-notes/actions/workflows/validate.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-8da101.svg)](LICENSE)
 [![curated by](https://img.shields.io/badge/curated%20by-Hermes%20%F0%9F%A4%96-a7c080.svg)](#-how-hermes-keeps-it-current)
-[![models](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fkamilrybacki.github.io%2Fmy-small-slm-notes%2Fmodels.json&query=%24.length&label=models&color=7fbbb3)](https://kamilrybacki.github.io/my-small-slm-notes/)
+[![models](https://img.shields.io/endpoint?url=https%3A%2F%2Fkamilrybacki.github.io%2Fmy-small-slm-notes%2Fbadges%2Fmodel-count.json)](https://kamilrybacki.github.io/my-small-slm-notes/)
 
 </div>
 
 ---
 
-<!-- HOOK: Hermes-authored -->
-> _Hook — pending Hermes contribution (run `README-MSSN-2101`)._
+### Small models deserve a **map**, not another leaderboard.
+
+A git-driven field guide for SLMs that can leave the datacenter — researched, size-bucketed, and built for the uncomfortable gap between _"it runs"_ and _"it fits."_
 
 ## 📚 Table of contents
 - [Why this exists](#-why-this-exists)
@@ -34,8 +35,9 @@ _One YAML file per model · HuggingFace-grounded · auto-curated by a homelab ag
 
 ## 🎯 Why this exists
 
-<!-- WHY: Hermes-authored -->
-> _Why — pending Hermes contribution._
+Edge AI is mostly a constraint-satisfaction problem wearing a model-selection hat: RAM, VRAM, context, license, latency, quantization, and whatever mildly cursed machine is actually available.
+
+A flat list obscures the first decision that matters: **what size class can this workload realistically carry?** Grouping models into `<3B`, `3–8B`, and `>8B` turns a catalog into a *navigation tool* — from tiny local experiments, through practical workstation models, up to the larger "still small-ish, technically" tier. This is curation for **choosing**, not just collecting.
 
 ## 🪣 The three buckets
 
@@ -88,8 +90,9 @@ flowchart LR
 
 ## 🤖 How Hermes keeps it current
 
-<!-- HERMES-FLOW: Hermes-authored -->
-> _Narrative — pending Hermes contribution._
+Hermes keeps the catalog warm from the homelab: weekly sweeps plus on-demand refreshes, with HuggingFace as the **factual anchor** rather than vibes, reposts, or benchmark folklore. The sync path extracts the useful boring facts — total safetensors params, license card data, creation date, configured context length — then CI validates every proposed YAML before it can become site data.
+
+The safety story is intentionally unglamorous: Hermes writes updates to `hermes/update-*`, the deploy key can **propose but never merge**, GitHub Actions opens the PR, and `main` stays protected. Automation does the research and the paperwork; **a human keeps the final `git merge` button.** A small human gate stops a very enthusiastic homelab goblin from silently rewriting the field guide. 🧌
 
 ```mermaid
 sequenceDiagram
