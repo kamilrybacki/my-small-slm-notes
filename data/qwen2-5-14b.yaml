@@ -5,7 +5,7 @@ context_len: 131072
 modality: text
 release_date: 2024-09-15
 url: https://huggingface.co/Qwen/Qwen2.5-14B
-notes:
+quick_facts:
   - Apache-2.0 at 14B is unusual and valuable.
   - Strong coding and multilingual coverage.
 quant_available: true

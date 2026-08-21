@@ -117,7 +117,7 @@ sequenceDiagram
 
 **The mechanics** (what Hermes actually runs):
 
-1. Adds the model to [`scripts/models.manifest.json`](scripts/models.manifest.json) (curated `notes`, `modality`, `active_params`).
+1. Adds the model to [`scripts/models.manifest.json`](scripts/models.manifest.json) (curated `quick_facts`, optional `my_experience`, `modality`, `active_params`).
 2. Runs `npm run hf-sync` — [`scripts/hf-sync.mjs`](scripts/hf-sync.mjs) pulls **grounded facts from HuggingFace**, never free-recall:
 
    | Field | Source |
@@ -177,9 +177,11 @@ context_len: 8192           # required. Integer tokens, or "unknown".
 modality: text              # required. e.g. text, text+vision. May be "unknown".
 release_date: "2024-11-01"  # required. ISO YYYY-MM-DD, or "unknown".
 url: https://huggingface.co/HuggingFaceTB/SmolLM2-360M  # required, real http(s).
-notes:                      # required. Unordered list, >= 1 item.
+quick_facts:                # required. Objective one-liners, >= 1 item.
   - Trained on ~4T tokens.
   - Edge-friendly.
+my_experience:              # OPTIONAL. Projects / infra where you use it.
+  - Distilled into the YAIkes on-device classifier.
 quant_available: true       # required. Boolean.
 ```
 
@@ -209,7 +211,7 @@ data/                          one <slug>.yaml per model (source of truth)
 schema/model.schema.json       JSON Schema (draft 2020-12) for an entry
 src/lib.mjs                    pure fns: bucketOf, slugify, dedup, grouping
 scripts/hf-sync.mjs            HF-grounded writer — Hermes's updater
-scripts/models.manifest.json   which models + curated notes/modality
+scripts/models.manifest.json   which models + curated quick_facts/experience
 scripts/build.mjs              YAML → dist/index.html + models.json
 scripts/validate.mjs           the CI gate
 test/                          node:test suites (lib + data integrity)

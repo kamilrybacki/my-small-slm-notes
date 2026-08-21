@@ -25,7 +25,7 @@ function loadModels() {
 // --- render ------------------------------------------------------------
 
 // The day the DGX Spark longing officially began. Adjust to taste.
-const DGX_SINCE = '2025-03-18';
+const DGX_SINCE = '2026-08-22';
 
 const esc = (s) =>
   String(s)
@@ -61,13 +61,21 @@ function banner() {
 </aside>`;
 }
 
+function factBlock(items, label, cls) {
+  if (!Array.isArray(items) || items.length === 0) return '';
+  const lis = items.map((x) => `<li>${esc(x)}</li>`).join('');
+  return `<div class="notes-block ${cls}">
+      <p class="notes-label">${label}</p>
+      <ul class="notes">${lis}</ul>
+    </div>`;
+}
+
 function card(m, n) {
   const no = String(n).padStart(3, '0');
   const params = m.active_params
     ? `${esc(m.params)}B total &middot; ${esc(m.active_params)}B active`
     : `${esc(m.params)}B`;
   const quant = m.quant_available ? 'quantized' : 'no quant';
-  const notes = m.notes.map((x) => `<li>${esc(x)}</li>`).join('');
   return `<article class="card">
   <div class="card-margin">
     <p class="card-no">No. ${no}</p>
@@ -80,7 +88,8 @@ function card(m, n) {
       <div class="spec-row"><dt>modality &middot; ctx</dt><dd>${esc(m.modality)} &middot; ${fmtCtx(m.context_len)}</dd></div>
       <div class="spec-row"><dt>license &middot; quant</dt><dd>${esc(m.license)} &middot; ${quant}</dd></div>
     </dl>
-    <ul class="notes">${notes}</ul>
+    ${factBlock(m.quick_facts, 'Quick facts', 'qf')}
+    ${factBlock(m.my_experience, 'My experience', 'exp')}
   </div>
 </article>`;
 }
@@ -248,9 +257,14 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-0.01em}
 .spec-row:last-child{border-bottom:0}
 .spec-row dt{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .spec-row dd{margin:0;font-size:12.5px;color:var(--ink-soft);text-align:right}
+.notes-block{margin-top:12px}
+.notes-block + .notes-block{margin-top:12px;padding-top:12px;border-top:1px solid var(--rule-faint)}
+.notes-label{margin:0 0 5px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.notes-block.exp .notes-label{color:var(--oxide)}
 .notes{list-style:none;margin:0;padding:0;font-size:13px;color:var(--ink-soft)}
 .notes li{display:flex;gap:8px;margin-top:4px}
 .notes li::before{content:"\\2014";color:var(--dash);flex:none}
+.notes-block.exp .notes li::before{content:"\\25B8";color:var(--oxide)}
 @media (max-width:520px){
   .card{grid-template-columns:1fr;gap:10px}
   .card-margin{display:flex;align-items:baseline;gap:12px}

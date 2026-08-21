@@ -6,7 +6,7 @@ context_len: 4096
 modality: text
 release_date: 2024-07-20
 url: https://huggingface.co/allenai/OLMoE-1B-7B-0924
-notes:
+quick_facts:
   - Fully-open Mixture-of-Experts; ~1.3B active of ~7B total.
   - MoE gives near-1B latency with 7B-class quality.
 quant_available: true
