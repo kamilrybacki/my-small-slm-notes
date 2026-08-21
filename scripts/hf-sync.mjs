@@ -27,7 +27,7 @@ const round2 = (n) => Math.round(n * 100) / 100;
 const HF_TOKEN = process.env.HF_TOKEN || '';
 
 async function getJson(url) {
-  const headers = { 'User-Agent': 'awesome-slms-sync' };
+  const headers = { 'User-Agent': 'my-small-slm-notes-sync' };
   if (HF_TOKEN) headers.Authorization = `Bearer ${HF_TOKEN}`; // unlocks gated config.json
   const res = await fetch(url, { headers });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText} for ${url}`);

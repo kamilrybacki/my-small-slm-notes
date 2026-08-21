@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://awesome-slms/model.schema.json",
+  "$id": "https://my-small-slm-notes/model.schema.json",
   "title": "SLM model entry",
   "type": "object",
   "additionalProperties": false,

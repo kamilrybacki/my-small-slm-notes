@@ -71,20 +71,20 @@ A write deploy key can otherwise push straight to `main` and skip CI. Lock it:
 
 ### D. Hermes deploy key (write-scoped, this repo only, in Vault)
 ```bash
-ssh-keygen -t ed25519 -f awesome-slms-deploy -N "" -C "hermes-awesome-slms"
-# GitHub: Settings → Deploy keys → Add → paste awesome-slms-deploy.pub → ✅ Allow write access
+ssh-keygen -t ed25519 -f my-small-slm-notes-deploy -N "" -C "hermes-my-small-slm-notes"
+# GitHub: Settings → Deploy keys → Add → paste my-small-slm-notes-deploy.pub → ✅ Allow write access
 # Store the PRIVATE key in Vault (never baked into an image):
-vault kv put secret/awesome-slms-deploy private_key=@awesome-slms-deploy
-rm awesome-slms-deploy awesome-slms-deploy.pub
+vault kv put secret/my-small-slm-notes-deploy private_key=@my-small-slm-notes-deploy
+rm my-small-slm-notes-deploy my-small-slm-notes-deploy.pub
 ```
 Hermes mounts the private key and pushes over SSH:
 ```bash
-git remote set-url origin git@github.com:<owner>/awesome-slms.git
+git remote set-url origin git@github.com:<owner>/my-small-slm-notes.git
 git checkout -b hermes/update-$(date +%Y%m%d)
 git add data/ && git commit -m "chore(data): SLM update" && git push -u origin HEAD
 ```
 
-> Note: PRs opened by the built-in `GITHUB_TOKEN` do not re-trigger `pull_request` workflows — that is why **Validate data** also runs on `push: hermes/**`, so the required check is present on the head commit regardless.
+> Note: PRs opened by the built-in `GITHUB_TOKEN` do not re-trigger `pull_request` workflows — that is why **`validate-data`** also runs on `push: hermes/**`, so the required check is present on the head commit regardless.
 
 ## Local development
 
