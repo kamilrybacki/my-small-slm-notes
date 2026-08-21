@@ -1,0 +1,37 @@
+name: Validate data
+
+# Runs on PRs and on Hermes branch pushes. This is the REQUIRED status check
+# that main's branch protection gates on. It also runs on hermes/** pushes so
+# the check is present on the head SHA even if the PR was opened by GITHUB_TOKEN
+# (which does not re-trigger pull_request workflows).
+on:
+  pull_request:
+    paths:
+      - 'data/**'
+      - 'schema/**'
+      - 'scripts/**'
+      - 'src/**'
+      - 'test/**'
+      - 'package.json'
+  push:
+    branches:
+      - 'hermes/**'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install --no-audit --no-fund
+      - name: Validate schema, slugs, injection
+        run: npm run validate
+      - name: Unit + data integrity tests
+        run: npm test
+      - name: Build must succeed
+        run: npm run build

@@ -1,0 +1,11 @@
+name: SmolLM2-360M
+params: 0.36
+license: Apache-2.0
+context_len: 8192
+modality: text
+release_date: "2024-11-01"
+url: https://huggingface.co/HuggingFaceTB/SmolLM2-360M
+notes:
+  - Trained on 4T tokens; strong for its size on instruction following.
+  - Designed for on-device and edge inference.
+quant_available: true

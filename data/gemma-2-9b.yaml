@@ -1,0 +1,11 @@
+name: Gemma-2-9B
+params: 9.24
+license: Gemma
+context_len: 8192
+modality: text
+release_date: "2024-06-27"
+url: https://huggingface.co/google/gemma-2-9b
+notes:
+  - Knowledge-distilled from larger Gemma teachers.
+  - Competitive with much larger models on many benchmarks.
+quant_available: true

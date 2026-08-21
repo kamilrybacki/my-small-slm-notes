@@ -1,0 +1,32 @@
+name: Auto-open PR for Hermes
+
+# When Hermes pushes a hermes/** branch (via its write-scoped deploy key),
+# this opens (or reuses) a PR into main. Hermes never calls the gh CLI itself.
+on:
+  push:
+    branches:
+      - 'hermes/**'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  open-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open or reuse PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BRANCH="${GITHUB_REF#refs/heads/}"
+          if gh pr view "$BRANCH" --json number >/dev/null 2>&1; then
+            echo "PR for $BRANCH already open."
+          else
+            gh pr create \
+              --base main \
+              --head "$BRANCH" \
+              --title "chore(data): Hermes SLM update ($BRANCH)" \
+              --body $'Automated small-language-model data update pushed by Hermes.\n\n- All entries HuggingFace-grounded.\n- Merge only after the **Validate data** check is green.'
+          fi
