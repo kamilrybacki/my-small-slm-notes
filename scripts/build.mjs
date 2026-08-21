@@ -78,13 +78,13 @@ function page(groups, total) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Awesome SLMs — small language model aggregator</title>
+<title>my-small-slm-notes</title>
 <meta name="description" content="A curated aggregator of researched small language models, grouped by size class.">
 <style>${CSS}</style>
 </head>
 <body>
 <header class="top">
-  <h1>Awesome SLMs</h1>
+  <h1>my-small-slm-notes</h1>
   <p>A curated aggregator of small language models, grouped by size class. <strong>${total}</strong> models.</p>
   <nav class="nav">${nav}</nav>
 </header>
