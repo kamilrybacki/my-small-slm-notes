@@ -106,7 +106,7 @@ sequenceDiagram
     Cron->>Hermes: "add / refresh model X"
     Hermes->>HF: GET model info + config.json
     HF-->>Hermes: params · license · date · context_len
-    Hermes->>Hermes: write data/<slug>.yaml (grounded)
+    Hermes->>Hermes: write data/&lt;slug&gt;.yaml (grounded)
     Hermes->>GH: push hermes/update-* (deploy key)
     GH->>GH: auto-open PR · run validate-data
     GH-->>You: PR ready ✅ checks green
