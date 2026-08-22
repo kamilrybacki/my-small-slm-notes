@@ -25,7 +25,7 @@ function loadModels() {
 // --- render ------------------------------------------------------------
 
 // The day the DGX Spark longing officially began. Adjust to taste.
-const DGX_SINCE = '2026-08-22';
+const DGX_SINCE = '2026-01-01';
 
 const esc = (s) =>
   String(s)
