@@ -1,0 +1,11 @@
+name: SmolLM3-3B
+params: 3.08
+license: apache-2.0
+context_len: 65536
+modality: text
+release_date: 2025-07-08
+url: https://huggingface.co/HuggingFaceTB/SmolLM3-3B
+quick_facts:
+  - Fully-open 3B with dual reasoning modes (think / no-think).
+  - 64K+ context, multilingual; strong reasoning for its size.
+quant_available: true
