@@ -1,0 +1,11 @@
+name: DeepSeek-R1-Distill-Llama-8B
+params: 8.03
+license: mit
+context_len: 131072
+modality: text
+release_date: 2025-01-20
+url: https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B
+quick_facts:
+  - Distilled from Llama-3.1-8B using DeepSeek-R1-generated reasoning data.
+  - Dense reasoning model in DeepSeek’s R1-Distill family.
+quant_available: false

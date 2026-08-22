@@ -1,0 +1,11 @@
+name: whisper-small
+params: 0.24
+license: apache-2.0
+context_len: unknown
+modality: audio->text
+release_date: 2022-09-26
+url: https://huggingface.co/openai/whisper-small
+quick_facts:
+  - OpenAI ASR and speech-translation model.
+  - OpenAI documents small as 244M parameters.
+quant_available: false

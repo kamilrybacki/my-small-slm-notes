@@ -1,0 +1,11 @@
+name: parler-tts-mini-v1
+params: 0.88
+license: apache-2.0
+context_len: unknown
+modality: text->audio
+release_date: 2024-06-26
+url: https://huggingface.co/parler-tts/parler-tts-mini-v1
+quick_facts:
+  - 880M text-to-speech model from Parler-TTS.
+  - Upstream project says Mini v1 was trained on 45K audiobook hours.
+quant_available: false

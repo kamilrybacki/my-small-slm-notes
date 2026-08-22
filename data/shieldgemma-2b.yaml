@@ -1,0 +1,11 @@
+name: shieldgemma-2b
+params: 2.61
+license: gemma
+context_len: unknown
+modality: text
+release_date: 2024-07-16
+url: https://huggingface.co/google/shieldgemma-2b
+quick_facts:
+  - Gemma-2-based safety moderator for four harm categories.
+  - Designed to moderate human inputs, model outputs, or both.
+quant_available: false
