@@ -49,15 +49,10 @@ function fmtDate(v) {
 }
 
 function banner() {
-  return `<aside class="plaque" aria-label="Days without an NVIDIA DGX Spark">
+  return `<aside class="plaque" aria-label="Days without a DGX Spark">
   <img class="plaque-img" src="assets/dgx-spark.png" alt="A gold NVIDIA DGX Spark" width="96" height="64">
-  <div class="plaque-body">
-    <p class="plaque-kicker">Permanent collection &middot; item absent</p>
-    <p class="plaque-title">Days without an NVIDIA DGX Spark</p>
-    <p class="plaque-note">counter resets upon acquisition. it has not reset.</p>
-  </div>
-  <p class="plaque-stamp" aria-hidden="true">Not yet<br>acquired</p>
-  <p class="plaque-count"><span id="dgx-days" aria-live="polite">&mdash;</span><span class="plaque-count-label">days and counting</span></p>
+  <p class="plaque-title">Days without a DGX Spark</p>
+  <p class="plaque-count"><span id="dgx-days" aria-live="polite">&mdash;</span></p>
 </aside>`;
 }
 
@@ -197,21 +192,14 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-0.01em}
 .wrap{max-width:1020px;margin:0 auto;padding:clamp(20px,4.5vw,48px) clamp(18px,4.5vw,40px) 64px}
 
 /* plaque */
-.plaque{display:grid;grid-template-columns:auto 1fr auto auto;grid-template-areas:"img body stamp count";gap:16px 24px;align-items:center;border-top:2px solid var(--rule-strong);border-bottom:1px solid var(--rule);padding:16px 0;margin:0}
+.plaque{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"img title count";gap:16px 24px;align-items:center;border-top:2px solid var(--rule-strong);border-bottom:1px solid var(--rule);padding:16px 0;margin:0}
 .plaque p{margin:0}
 .plaque-img{grid-area:img;width:96px;height:64px;object-fit:contain;padding:4px;border:1px solid var(--rule)}
-.plaque-body{grid-area:body}
-.plaque-kicker{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--oxide);font-weight:600;margin-bottom:4px}
-.plaque-title{font-family:var(--display);font-weight:600;font-size:17px}
-.plaque-note{font-style:italic;color:var(--muted);font-size:13px;margin-top:2px}
-.plaque-stamp{grid-area:stamp;border:1.5px solid var(--oxide);color:var(--oxide);font-family:var(--display);font-weight:600;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;text-align:center;line-height:1.5;padding:6px 12px;transform:rotate(-4deg)}
+.plaque-title{grid-area:title;font-family:var(--display);font-weight:600;font-size:17px}
 .plaque-count{grid-area:count;text-align:right}
-.plaque-count span{display:block}
 .plaque-count #dgx-days{font-family:var(--display);font-weight:700;font-size:44px;line-height:1;letter-spacing:-0.02em}
-.plaque-count-label{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:3px}
 @media (max-width:700px){
-  .plaque{grid-template-columns:auto 1fr;grid-template-areas:"img count" "body body";row-gap:14px}
-  .plaque-stamp{display:none}
+  .plaque{grid-template-columns:auto 1fr;grid-template-areas:"img count" "title title";row-gap:14px}
   .plaque-count{align-self:center}
 }
 
