@@ -51,6 +51,13 @@ Every model is filed by **total parameters (in billions)** into exactly one clas
 
 > MoE models are filed by **total** params and carry an extra `active_params` field.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/buckets-dark.svg">
+  <img alt="Three size buckets: Sub-1B to 3B, 3B to 8B, 8B to 15B+" src="assets/diagrams/buckets-light.svg">
+</picture>
+
+<details><summary>Mermaid source</summary>
+
 ```mermaid
 flowchart TB
     subgraph S["🤏 Sub-1B → 3B &nbsp; · &nbsp; params &lt; 3"]
@@ -71,18 +78,29 @@ flowchart TB
     style L fill:#2e383c,stroke:#dbbc7f,color:#d3c6aa
 ```
 
+</details>
+
 ## ⚙️ How it works
 
 This is a **git-driven static site** — no backend, no database, no public write endpoint. The source of truth is a folder of YAML files; everything else is derived.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/pipeline-dark.svg">
+  <img alt="Git-driven pipeline: data YAML to PR to main to build to GitHub Pages" src="assets/diagrams/pipeline-light.svg">
+</picture>
+
+<details><summary>Mermaid source</summary>
+
 ```mermaid
 flowchart LR
-    A["data/&lt;slug&gt;.yaml<br/>one file per model"] -->|git push| B{"Pull Request"}
+    A["data/{slug}.yaml<br/>one file per model"] -->|git push| B{"Pull Request"}
     B -->|CI: validate-data| C["✅ schema · slug<br/>anti-injection · dedup"]
     C -->|you merge| D["main<br/>🔒 branch-protected"]
     D --> E["build.mjs<br/>YAML → index.html"]
     E --> F["🌐 GitHub Pages"]
 ```
+
+</details>
 
 - **Source of truth:** one `data/<slug>.yaml` per model. The filename **must** equal the model's slug.
 - **Build:** [`scripts/build.mjs`](scripts/build.mjs) reads every `data/*.yaml`, sorts by params into the three buckets, and emits a single self-contained `dist/index.html` (+ machine-readable `dist/models.json`). No framework, no runtime JS.
@@ -93,6 +111,13 @@ flowchart LR
 Hermes keeps the catalog warm from the homelab: weekly sweeps plus on-demand refreshes, with HuggingFace as the **factual anchor** rather than vibes, reposts, or benchmark folklore. The sync path extracts the useful boring facts — total safetensors params, license card data, creation date, configured context length — then CI validates every proposed YAML before it can become site data.
 
 The safety story is intentionally unglamorous: Hermes writes updates to `hermes/update-*`, the deploy key can **propose but never merge**, GitHub Actions opens the PR, and `main` stays protected. Automation does the research and the paperwork; **a human keeps the final `git merge` button.** A small human gate stops a very enthusiastic homelab goblin from silently rewriting the field guide. 🧌
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/hermes-flow-dark.svg">
+  <img alt="How Hermes adds a model: cron to Hermes to HuggingFace to GitHub PR to human merge to Pages" src="assets/diagrams/hermes-flow-light.svg">
+</picture>
+
+<details><summary>Mermaid source</summary>
 
 ```mermaid
 sequenceDiagram
@@ -106,14 +131,16 @@ sequenceDiagram
     Cron->>Hermes: "add / refresh model X"
     Hermes->>HF: GET model info + config.json
     HF-->>Hermes: params · license · date · context_len
-    Hermes->>Hermes: write data/&lt;slug&gt;.yaml (grounded)
+    Hermes->>Hermes: write data/{slug}.yaml (grounded)
     Hermes->>GH: push hermes/update-* (deploy key)
     GH->>GH: auto-open PR · run validate-data
     GH-->>You: PR ready ✅ checks green
-    You->>GH: review & merge to main 🔒
+    You->>GH: review and merge to main 🔒
     GH->>Pages: build.mjs → deploy
     Pages-->>You: site updated
 ```
+
+</details>
 
 **The mechanics** (what Hermes actually runs):
 

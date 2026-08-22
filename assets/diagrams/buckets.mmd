@@ -1,0 +1,17 @@
+flowchart TB
+    subgraph S["🤏 Sub-1B → 3B &nbsp; · &nbsp; params &lt; 3"]
+        direction LR
+        s1(SmolLM2-360M) ~~~ s2(Qwen2.5-0.5B) ~~~ s3(Llama-3.2-1B)
+    end
+    subgraph M["⚖️ 3B → 8B &nbsp; · &nbsp; 3 ≤ params ≤ 8"]
+        direction LR
+        m1(Phi-3.5-mini) ~~~ m2(Mistral-7B) ~~~ m3(OLMoE-1B-7B)
+    end
+    subgraph L["🐘 8B → 15B+ &nbsp; · &nbsp; params &gt; 8"]
+        direction LR
+        l1(Gemma-2-9B) ~~~ l2(Phi-3-medium) ~~~ l3(Qwen2.5-14B)
+    end
+    S --> M --> L
+    style S fill:#2e383c,stroke:#a7c080,color:#d3c6aa
+    style M fill:#2e383c,stroke:#7fbbb3,color:#d3c6aa
+    style L fill:#2e383c,stroke:#dbbc7f,color:#d3c6aa
