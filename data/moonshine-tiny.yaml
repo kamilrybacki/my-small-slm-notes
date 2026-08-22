@@ -1,0 +1,11 @@
+name: moonshine-tiny
+params: 0.03
+license: mit
+context_len: 194
+modality: audio->text
+release_date: 2024-10-30
+url: https://huggingface.co/UsefulSensors/moonshine-tiny
+quick_facts:
+  - Useful Sensors on-device automatic speech-recognition model.
+  - Moonshine targets resource-efficient speech transcription.
+quant_available: false

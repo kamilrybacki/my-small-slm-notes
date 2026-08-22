@@ -1,0 +1,11 @@
+name: gte-small
+params: 0.03
+license: mit
+context_len: 512
+modality: text->embedding
+release_date: 2023-07-27
+url: https://huggingface.co/thenlper/gte-small
+quick_facts:
+  - Small GTE text-embedding checkpoint.
+  - First-party model card exposes weights on Hugging Face.
+quant_available: false

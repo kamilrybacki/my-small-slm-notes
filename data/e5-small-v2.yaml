@@ -1,0 +1,11 @@
+name: e5-small-v2
+params: 0.03
+license: mit
+context_len: 512
+modality: text->embedding
+release_date: 2023-05-19
+url: https://huggingface.co/intfloat/e5-small-v2
+quick_facts:
+  - Small E5-v2 text embedding checkpoint.
+  - First-party card documents the query/passage prompting convention.
+quant_available: false

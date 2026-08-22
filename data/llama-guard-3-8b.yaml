@@ -1,0 +1,11 @@
+name: Llama-Guard-3-8B
+params: 8.03
+license: llama3.1
+context_len: unknown
+modality: text
+release_date: 2024-07-22
+url: https://huggingface.co/meta-llama/Llama-Guard-3-8B
+quick_facts:
+  - Fine-tuned Llama-3.1-8B classifier for prompt and response safety.
+  - Meta provides an official INT8 version.
+quant_available: true
