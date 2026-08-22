@@ -226,7 +226,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-0.01em}
 
 /* index nav */
 .nav{display:block;border-top:1px solid var(--rule-strong);margin-top:22px}
-.nav-row{display:flex;align-items:baseline;gap:12px;min-height:44px;padding:11px 2px;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.nav-row{display:flex;align-items:baseline;gap:12px;min-height:44px;padding:11px clamp(8px,1.5vw,12px);margin-inline:calc(-1 * clamp(8px,1.5vw,12px));border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
 .nav-no{color:var(--oxide);font-weight:600;font-size:12px}
 .nav-label{font-family:var(--display);font-weight:600;font-size:14px}
 .nav-leader{flex:1;border-bottom:1px dotted var(--dash);margin:0 4px 4px;min-width:24px}
@@ -244,7 +244,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-0.01em}
 
 /* cards */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));column-gap:clamp(28px,5vw,56px);margin-top:10px}
-.card{border-bottom:1px solid var(--rule);padding:clamp(18px,3.5vw,26px) 0;display:grid;grid-template-columns:86px 1fr;gap:18px}
+.card{border-bottom:1px solid var(--rule);padding:clamp(18px,3.5vw,26px) clamp(12px,2vw,16px);margin-inline:calc(-1 * clamp(12px,2vw,16px));display:grid;grid-template-columns:86px 1fr;gap:18px}
 .card p{margin:0}
 .card-margin{color:var(--muted);font-size:11px}
 .card-no{color:var(--dash);letter-spacing:.04em}
