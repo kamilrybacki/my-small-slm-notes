@@ -51,10 +51,7 @@ Every model is filed by **total parameters (in billions)** into exactly one clas
 
 > MoE models are filed by **total** params and carry an extra `active_params` field.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/buckets-dark.svg">
-  <img alt="Three size buckets: Sub-1B to 3B, 3B to 8B, 8B to 15B+" src="assets/diagrams/buckets-light.svg">
-</picture>
+<img alt="Three size buckets: Sub-1B to 3B, 3B to 8B, 8B to 15B+" src="assets/diagrams/buckets.png">
 
 <details><summary>Mermaid source</summary>
 
@@ -84,10 +81,7 @@ flowchart TB
 
 This is a **git-driven static site** — no backend, no database, no public write endpoint. The source of truth is a folder of YAML files; everything else is derived.
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/pipeline-dark.svg">
-  <img alt="Git-driven pipeline: data YAML to PR to main to build to GitHub Pages" src="assets/diagrams/pipeline-light.svg">
-</picture>
+<img alt="Git-driven pipeline: data YAML to PR to main to build to GitHub Pages" src="assets/diagrams/pipeline.png">
 
 <details><summary>Mermaid source</summary>
 
@@ -112,10 +106,7 @@ Hermes keeps the catalog warm from the homelab: weekly sweeps plus on-demand ref
 
 The safety story is intentionally unglamorous: Hermes writes updates to `hermes/update-*`, the deploy key can **propose but never merge**, GitHub Actions opens the PR, and `main` stays protected. Automation does the research and the paperwork; **a human keeps the final `git merge` button.** A small human gate stops a very enthusiastic homelab goblin from silently rewriting the field guide. 🧌
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/diagrams/hermes-flow-dark.svg">
-  <img alt="How Hermes adds a model: cron to Hermes to HuggingFace to GitHub PR to human merge to Pages" src="assets/diagrams/hermes-flow-light.svg">
-</picture>
+<img alt="How Hermes adds a model: cron to Hermes to HuggingFace to GitHub PR to human merge to Pages" src="assets/diagrams/hermes-flow.png">
 
 <details><summary>Mermaid source</summary>
 
