@@ -191,10 +191,10 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-0.01em}
 .wrap{max-width:1020px;margin:0 auto;padding:clamp(20px,4.5vw,48px) clamp(18px,4.5vw,40px) 64px}
 
 /* plaque */
-.plaque{display:flex;align-items:center;justify-content:space-between;gap:clamp(16px,4vw,32px);border-top:2px solid var(--rule-strong);padding:clamp(24px,4vw,32px) 0;margin-top:clamp(40px,7vw,56px)}
+.plaque{display:flex;align-items:center;justify-content:space-between;gap:clamp(16px,4vw,32px);border-top:2px solid var(--rule-strong);padding:clamp(12px,2.5vw,18px) 0;margin-top:clamp(40px,7vw,56px)}
 .plaque p{margin:0}
 .plaque-title{min-width:0;font-family:var(--display);font-weight:600;font-size:clamp(17px,4vw,26px);line-height:1.15}
-.plaque-count{position:relative;flex:none;display:grid;place-items:center;min-width:96px;min-height:68px;padding:0 10px}
+.plaque-count{position:relative;flex:none;display:grid;place-items:center;min-width:88px;min-height:56px;padding:0 10px}
 .plaque-count::before{content:"";position:absolute;inset:0;background:url(assets/dgx-spark.png) center/contain no-repeat;opacity:.2;pointer-events:none}
 .plaque-count #dgx-days{position:relative;font-family:var(--display);font-weight:700;font-size:clamp(40px,10vw,56px);line-height:1;letter-spacing:-0.02em}
 
