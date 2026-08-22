@@ -128,7 +128,6 @@ function page(groups, total) {
 <body>
 <a class="skip" href="#main">Skip to the catalog</a>
 <div class="wrap">
-${banner()}
 <header class="top">
   <p class="kicker">A field guide, not a leaderboard</p>
   <h1>my-small-slm-notes</h1>
@@ -147,6 +146,7 @@ ${sections}
   <p>Data lives as one YAML file per model in <code>data/</code>. Updated via reviewed pull requests.</p>
   <p>Built statically &middot; no runtime deps</p>
 </footer>
+${banner()}
 </div>
 <script>
 (function () {
