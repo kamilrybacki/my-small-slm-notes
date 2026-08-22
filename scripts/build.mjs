@@ -255,7 +255,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-0.01em}
 }
 
 /* footer */
-.foot{margin-top:clamp(28px,5vw,40px);border-top:1px solid var(--rule-strong);padding-top:12px;display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+.foot{margin-top:0;border-top:1px solid var(--rule-strong);padding-top:clamp(20px,4vw,28px);display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;color:var(--muted);font-size:12px}
 .foot p{margin:0}
 .foot code{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:11px;background:var(--wash);padding:.1rem .35rem}
 
