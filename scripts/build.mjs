@@ -142,11 +142,11 @@ ${nav}
 <main id="main">
 ${sections}
 </main>
+${banner()}
 <footer class="foot">
   <p>Data lives as one YAML file per model in <code>data/</code>. Updated via reviewed pull requests.</p>
   <p>Built statically &middot; no runtime deps</p>
 </footer>
-${banner()}
 </div>
 <script>
 (function () {
@@ -191,7 +191,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-0.01em}
 .wrap{max-width:1020px;margin:0 auto;padding:clamp(20px,4.5vw,48px) clamp(18px,4.5vw,40px) 64px}
 
 /* plaque */
-.plaque{display:flex;align-items:center;justify-content:space-between;gap:clamp(16px,4vw,32px);border-top:2px solid var(--rule-strong);border-bottom:1px solid var(--rule);padding:16px 0;margin:0}
+.plaque{display:flex;align-items:center;justify-content:space-between;gap:clamp(16px,4vw,32px);border-top:2px solid var(--rule-strong);padding:clamp(24px,4vw,32px) 0;margin-top:clamp(40px,7vw,56px)}
 .plaque p{margin:0}
 .plaque-title{min-width:0;font-family:var(--display);font-weight:600;font-size:clamp(17px,4vw,26px);line-height:1.15}
 .plaque-count{position:relative;flex:none;display:grid;place-items:center;min-width:96px;min-height:68px;padding:0 10px}
@@ -255,7 +255,7 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-0.01em}
 }
 
 /* footer */
-.foot{margin-top:clamp(44px,8vw,64px);border-top:1px solid var(--rule-strong);padding-top:12px;display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+.foot{margin-top:clamp(28px,5vw,40px);border-top:1px solid var(--rule-strong);padding-top:12px;display:flex;justify-content:space-between;gap:8px 24px;flex-wrap:wrap;color:var(--muted);font-size:12px}
 .foot p{margin:0}
 .foot code{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-size:11px;background:var(--wash);padding:.1rem .35rem}
 
