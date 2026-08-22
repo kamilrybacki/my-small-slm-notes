@@ -1,0 +1,12 @@
+name: MiniCPM-2B-128k
+params: 2.4
+license: Apache-2.0 with MiniCPM model terms
+context_len: 131072
+modality: text
+release_date: unknown
+url: https://huggingface.co/openbmb/MiniCPM-2B-128k
+quant_available: false
+quick_facts:
+  - 2.4B parameters excluding embeddings, per upstream card.
+  - Native 128K long-context variant under 3B.
+  - Upstream warns long-context tuning can reduce short-context quality.

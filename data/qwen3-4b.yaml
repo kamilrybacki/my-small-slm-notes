@@ -1,0 +1,12 @@
+name: Qwen3-4B
+params: 4
+license: Apache-2.0
+context_len: 32768
+modality: text
+release_date: 2025-04-29
+url: https://huggingface.co/Qwen/Qwen3-4B
+quant_available: true
+quick_facts:
+  - Dense Qwen3 with a 32K native context window.
+  - Supports thinking and non-thinking modes.
+  - Apache-2.0 with official quantized distribution.

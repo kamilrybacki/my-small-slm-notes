@@ -1,0 +1,12 @@
+name: OLMo-2-7B-Instruct
+params: 7
+license: Apache-2.0
+context_len: 4096
+modality: text
+release_date: 2024-11-13
+url: https://huggingface.co/allenai/OLMo-2-7B-Instruct
+quant_available: false
+quick_facts:
+  - Fully open Allen AI family with released data/code lineage.
+  - Dense 7B text checkpoint, distinct from the OLMoE entry.
+  - Apache-2.0 is materially simpler than many open-weight licences.

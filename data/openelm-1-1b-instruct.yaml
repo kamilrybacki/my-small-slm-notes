@@ -1,0 +1,12 @@
+name: OpenELM-1_1B-Instruct
+params: 1.1
+license: Apple Sample Code License
+context_len: 2048
+modality: text
+release_date: 2024-04-24
+url: https://huggingface.co/apple/OpenELM-1_1B-Instruct
+quant_available: false
+quick_facts:
+  - Apple released OpenELM with architecture and training recipe.
+  - Layer-wise parameter allocation is its defining choice.
+  - Research/edge baseline; review licence before catalog policy.

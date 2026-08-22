@@ -1,0 +1,13 @@
+name: DeepSeek-Coder-V2-Lite-Instruct
+params: 16
+active_params: 2.4
+license: DeepSeek
+context_len: 131072
+modality: text
+release_date: 2024-06-17
+url: https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct
+quant_available: false
+quick_facts:
+  - "MoE coding model: ~16B total but ~2.4B activated per token."
+  - 128K context family for coding and mathematical tasks.
+  - Total params exceed 15B; active cost is far lower.

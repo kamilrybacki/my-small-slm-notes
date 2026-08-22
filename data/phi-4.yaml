@@ -1,0 +1,12 @@
+name: Phi-4
+params: 14
+license: MIT
+context_len: 16384
+modality: text
+release_date: 2024-12-12
+url: https://huggingface.co/microsoft/phi-4
+quant_available: true
+quick_facts:
+  - 14B Microsoft text reasoning model; not the 3.8B Phi-4-mini.
+  - MIT licence, with official ONNX deployment variants.
+  - Treat the upstream card as authority for hardware/safety.

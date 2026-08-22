@@ -1,0 +1,12 @@
+name: Qwen2.5-VL-7B-Instruct
+params: 7
+license: Apache-2.0
+context_len: 32768
+modality: text+vision
+release_date: 2024-09-19
+url: https://huggingface.co/Qwen/Qwen2.5-VL-7B-Instruct
+quant_available: true
+quick_facts:
+  - 7B vision-language sibling of the Qwen2.5 text family.
+  - Accepts image/video plus text and emits text.
+  - Apache-2.0 upstream release.

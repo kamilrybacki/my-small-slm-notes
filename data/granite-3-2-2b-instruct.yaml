@@ -1,0 +1,12 @@
+name: Granite-3.2-2B-Instruct
+params: 2
+license: Apache-2.0
+context_len: 131072
+modality: text
+release_date: 2025-02-26
+url: https://huggingface.co/ibm-granite/granite-3.2-2b-instruct
+quant_available: true
+quick_facts:
+  - IBM long-context 2B instruction model with optional reasoning.
+  - Built on Granite 3.1 2B Instruct.
+  - IBM publishes an official GGUF counterpart.

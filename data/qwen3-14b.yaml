@@ -1,0 +1,12 @@
+name: Qwen3-14B
+params: 14.8
+license: Apache-2.0
+context_len: 32768
+modality: text
+release_date: 2025-04-29
+url: https://huggingface.co/Qwen/Qwen3-14B
+quant_available: true
+quick_facts:
+  - Dense Qwen3 14.8B model.
+  - Native 32K context; Qwen validates extension to 131K via YaRN.
+  - Official GGUF release under the Qwen organisation.

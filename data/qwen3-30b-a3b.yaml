@@ -1,0 +1,13 @@
+name: Qwen3-30B-A3B
+params: 30.5
+active_params: 3.3
+license: Apache-2.0
+context_len: 32768
+modality: text
+release_date: 2025-04-29
+url: https://huggingface.co/Qwen/Qwen3-30B-A3B
+quant_available: true
+quick_facts:
+  - "Sparse MoE: ~30B total but 3.3B active parameters."
+  - Shows why both total and active param fields matter.
+  - Native 32K context with optional long-context RoPE.
