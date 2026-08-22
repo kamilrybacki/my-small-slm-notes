@@ -50,7 +50,6 @@ function fmtDate(v) {
 
 function banner() {
   return `<aside class="plaque" aria-label="Days without a DGX Spark">
-  <img class="plaque-img" src="assets/dgx-spark.png" alt="A gold NVIDIA DGX Spark" width="96" height="64">
   <p class="plaque-title">Days without a DGX Spark</p>
   <p class="plaque-count"><span id="dgx-days" aria-live="polite">&mdash;</span></p>
 </aside>`;
@@ -192,16 +191,12 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-0.01em}
 .wrap{max-width:1020px;margin:0 auto;padding:clamp(20px,4.5vw,48px) clamp(18px,4.5vw,40px) 64px}
 
 /* plaque */
-.plaque{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"img title count";gap:16px 24px;align-items:center;border-top:2px solid var(--rule-strong);border-bottom:1px solid var(--rule);padding:16px 0;margin:0}
+.plaque{display:flex;align-items:center;justify-content:space-between;gap:clamp(16px,4vw,32px);border-top:2px solid var(--rule-strong);border-bottom:1px solid var(--rule);padding:16px 0;margin:0}
 .plaque p{margin:0}
-.plaque-img{grid-area:img;width:96px;height:64px;object-fit:contain;padding:4px;border:1px solid var(--rule)}
-.plaque-title{grid-area:title;font-family:var(--display);font-weight:600;font-size:17px}
-.plaque-count{grid-area:count;text-align:right}
-.plaque-count #dgx-days{font-family:var(--display);font-weight:700;font-size:44px;line-height:1;letter-spacing:-0.02em}
-@media (max-width:700px){
-  .plaque{grid-template-columns:auto 1fr;grid-template-areas:"img count" "title title";row-gap:14px}
-  .plaque-count{align-self:center}
-}
+.plaque-title{min-width:0;font-family:var(--display);font-weight:600;font-size:clamp(17px,4vw,26px);line-height:1.15}
+.plaque-count{position:relative;flex:none;display:grid;place-items:center;min-width:96px;min-height:68px;padding:0 10px}
+.plaque-count::before{content:"";position:absolute;inset:0;background:url(assets/dgx-spark.png) center/contain no-repeat;opacity:.2;pointer-events:none}
+.plaque-count #dgx-days{position:relative;font-family:var(--display);font-weight:700;font-size:clamp(40px,10vw,56px);line-height:1;letter-spacing:-0.02em}
 
 /* header */
 .top{padding:clamp(28px,6vw,44px) 0 clamp(24px,5vw,36px)}
