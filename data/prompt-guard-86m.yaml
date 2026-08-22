@@ -1,0 +1,11 @@
+name: Prompt-Guard-86M
+params: 0.28
+license: llama3.1
+context_len: unknown
+modality: text
+release_date: 2024-07-21
+url: https://huggingface.co/meta-llama/Prompt-Guard-86M
+quick_facts:
+  - Prompt-injection and jailbreak classifier based on multilingual mDeBERTa-v3-base.
+  - Meta documents a 512-token context window and 86M backbone.
+quant_available: false

@@ -1,0 +1,11 @@
+name: moonshine-base
+params: 0.06
+license: mit
+context_len: 194
+modality: audio->text
+release_date: 2024-11-02
+url: https://huggingface.co/UsefulSensors/moonshine-base
+quick_facts:
+  - Useful Sensors on-device automatic speech-recognition model.
+  - Moonshine targets resource-efficient speech transcription.
+quant_available: false

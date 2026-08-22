@@ -28,6 +28,12 @@ const SCHEMA_PATH = join(ROOT, 'schema', 'model.schema.json');
 const TEXT_FIELDS = ['name', 'license', 'modality', 'url'];
 const INJECTION = /[<>]|javascript:/i;
 
+// Catalog modalities intentionally use a safe ASCII arrow (e.g. text->embedding).
+// Keep the generic HTML/URL injection guard for every other string.
+function containsInjection(field, value) {
+  return INJECTION.test(field === 'modality' ? value.replaceAll('->', '') : value);
+}
+
 const ajv = new Ajv({ allErrors: true, strict: false });
 addFormats(ajv);
 const validate = ajv.compile(JSON.parse(readFileSync(SCHEMA_PATH, 'utf8')));
@@ -84,7 +90,7 @@ for (const file of files) {
 
   // 5. injection in text fields + list fields (quick_facts, my_experience)
   for (const f of TEXT_FIELDS) {
-    if (typeof doc[f] === 'string' && INJECTION.test(doc[f])) {
+    if (typeof doc[f] === 'string' && containsInjection(f, doc[f])) {
       errors.push(`${file}: field '${f}' contains disallowed characters (<, >, or javascript:).`);
     }
   }

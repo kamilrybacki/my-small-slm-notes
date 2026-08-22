@@ -1,0 +1,11 @@
+name: mxbai-embed-large-v1
+params: 0.34
+license: apache-2.0
+context_len: 512
+modality: text->embedding
+release_date: 2024-03-07
+url: https://huggingface.co/mixedbread-ai/mxbai-embed-large-v1
+quick_facts:
+  - Text embedding checkpoint for retrieval and semantic similarity.
+  - Official card documents Matryoshka Representation Learning support.
+quant_available: false

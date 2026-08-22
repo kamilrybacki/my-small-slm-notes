@@ -1,0 +1,11 @@
+name: jina-embeddings-v2-small-en
+params: 0.03
+license: apache-2.0
+context_len: 8192
+modality: text->embedding
+release_date: 2023-09-27
+url: https://huggingface.co/jinaai/jina-embeddings-v2-small-en
+quick_facts:
+  - English JinaBERT embedding model with 33M parameters.
+  - Jina documents 8,192-token support via ALiBi extrapolation.
+quant_available: false

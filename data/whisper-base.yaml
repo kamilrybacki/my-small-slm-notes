@@ -1,0 +1,11 @@
+name: whisper-base
+params: 0.07
+license: apache-2.0
+context_len: unknown
+modality: audio->text
+release_date: 2022-09-26
+url: https://huggingface.co/openai/whisper-base
+quick_facts:
+  - OpenAI ASR and speech-translation model.
+  - OpenAI documents base as 74M parameters.
+quant_available: false

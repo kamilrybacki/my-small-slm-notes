@@ -1,0 +1,11 @@
+name: bge-small-en-v1.5
+params: 0.03
+license: mit
+context_len: 512
+modality: text->embedding
+release_date: 2023-09-12
+url: https://huggingface.co/BAAI/bge-small-en-v1.5
+quick_facts:
+  - English BGE v1.5 embedding checkpoint with 384-dimensional output.
+  - BAAI documents a 512-token sequence length for v1.5 evaluation.
+quant_available: false

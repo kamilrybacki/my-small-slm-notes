@@ -1,0 +1,12 @@
+name: Needle
+params: 0.026
+license: Apache-2.0
+context_len: unknown
+modality: text
+release_date: 2026-05-12
+url: https://huggingface.co/Cactus-Compute/needle
+quant_available: true
+quick_facts:
+  - Gemini 3.1 distilled into a 26M "Simple Attention Network" (pure attention, no FFN) for single-shot function calling.
+  - Encoder-decoder — 12-layer GQA encoder plus 8-layer cross-attention decoder, d_model 512, 8192 BPE vocab.
+  - ~6000 tok/s prefill and 1200 tok/s decode on the Cactus runtime; INT4 QAT, Mac/Linux first.

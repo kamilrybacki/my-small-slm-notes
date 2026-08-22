@@ -1,0 +1,12 @@
+name: Needle 2
+params: 0.045
+license: unknown
+context_len: 256
+modality: text
+release_date: unknown
+url: https://huggingface.co/Cactus-Compute/needle2
+quant_available: true
+quick_facts:
+  - 45M tool-calling / structured-extraction model shipped as a single 14MB CQ2-bit binary in ~28MB session RAM.
+  - Runs on ARM64, x86-64, ARMv7, RISC-V and WebAssembly, down to ESP32 microcontrollers.
+  - Confidence-gated JSON output with grammar-constrained decoding, a top-5 tool-retrieval head, and a 256-token sliding window.

@@ -1,0 +1,11 @@
+name: bge-reranker-base
+params: 0.28
+license: mit
+context_len: 514
+modality: text->embedding
+release_date: 2023-09-11
+url: https://huggingface.co/BAAI/bge-reranker-base
+quick_facts:
+  - Chinese-English cross-encoder reranker that scores query and document directly.
+  - BAAI positions it after embedding retrieval.
+quant_available: false
