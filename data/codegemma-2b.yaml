@@ -1,0 +1,12 @@
+name: CodeGemma-2B
+params: 2
+license: Gemma
+context_len: 8192
+modality: text
+release_date: 2024-04-09
+url: https://huggingface.co/google/codegemma-2b
+quant_available: true
+quick_facts:
+  - Code-specialized continuation of the 2B Gemma checkpoint.
+  - Designed primarily for code infilling/completion.
+  - Full-precision GGUF artefacts released.

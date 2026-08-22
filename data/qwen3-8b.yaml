@@ -1,0 +1,12 @@
+name: Qwen3-8B
+params: 8
+license: Apache-2.0
+context_len: 131072
+modality: text
+release_date: 2025-04-29
+url: https://huggingface.co/Qwen/Qwen3-8B
+quant_available: true
+quick_facts:
+  - Dense Qwen3 with 128K context, unlike the 0.6B–4B 32K variants.
+  - Supports controllable reasoning mode.
+  - Strong Apache-2.0 general-purpose 8B default.

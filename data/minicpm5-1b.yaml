@@ -1,0 +1,12 @@
+name: MiniCPM5-1B
+params: 1.081
+license: Apache-2.0
+context_len: 131072
+modality: text
+release_date: 2026-05-19
+url: https://huggingface.co/openbmb/MiniCPM5-1B
+quant_available: true
+quick_facts:
+  - Dense 1.08B Llama-style model for on-device deployment.
+  - Official GGUF, MLX, base, SFT and post-trained releases exist.
+  - Exposes think/no-think operation in the same family.

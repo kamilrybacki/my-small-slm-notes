@@ -1,0 +1,12 @@
+name: Gemma-3-12B-it
+params: 12
+license: Gemma
+context_len: 131072
+modality: text+vision
+release_date: 2025-03-12
+url: https://huggingface.co/google/gemma-3-12b-it
+quant_available: true
+quick_facts:
+  - "Multimodal Gemma 3: text and images in, text out."
+  - 128K context and 140+ language support.
+  - Official pre-quantized QAT/GGUF ecosystem available.

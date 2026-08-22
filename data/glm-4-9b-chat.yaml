@@ -1,0 +1,12 @@
+name: GLM-4-9B-Chat
+params: 9
+license: GLM-4
+context_len: 131072
+modality: text
+release_date: 2024-06-05
+url: https://huggingface.co/THUDM/glm-4-9b-chat
+quant_available: false
+quick_facts:
+  - Zhipu AI 9B GLM-4 chat checkpoint.
+  - Supports a long-context configuration (serving-dependent).
+  - Project-specific GLM licence, not Apache/MIT.

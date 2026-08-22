@@ -1,0 +1,12 @@
+name: MobileLLM-1B
+params: 1
+license: unknown
+context_len: 2048
+modality: text
+release_date: 2024-01-05
+url: https://huggingface.co/facebook/MobileLLM-1B
+quant_available: false
+quick_facts:
+  - Meta research model focused on sub-billion/on-device efficiency.
+  - Family studies 125M–1B compact LMs.
+  - Treat as a research checkpoint; verify licence before publishing.

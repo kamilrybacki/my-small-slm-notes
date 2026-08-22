@@ -1,0 +1,12 @@
+name: Mistral-Nemo-Instruct-2407
+params: 12
+license: Apache-2.0
+context_len: 131072
+modality: text
+release_date: 2024-07-18
+url: https://huggingface.co/mistralai/Mistral-Nemo-Instruct-2407
+quant_available: false
+quick_facts:
+  - 12B collaborative Mistral AI/NVIDIA release.
+  - 128K context and Apache-2.0 distribution.
+  - Uses the Tekken tokenizer for multilingual efficiency.

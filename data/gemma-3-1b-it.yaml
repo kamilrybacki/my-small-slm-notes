@@ -1,0 +1,12 @@
+name: Gemma-3-1B-it
+params: 1
+license: Gemma
+context_len: 32768
+modality: text
+release_date: 2025-03-12
+url: https://huggingface.co/google/gemma-3-1b-it
+quant_available: true
+quick_facts:
+  - Text-only member of Gemma 3 (no image input).
+  - 32K context; the 4B/12B/27B siblings have 128K.
+  - Part of Google’s open-weight Gemma 3 release.

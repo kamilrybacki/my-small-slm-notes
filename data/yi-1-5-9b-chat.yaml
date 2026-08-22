@@ -1,0 +1,12 @@
+name: Yi-1.5-9B-Chat
+params: 9
+license: Apache-2.0
+context_len: 4096
+modality: text
+release_date: 2024-05-13
+url: https://huggingface.co/01-ai/Yi-1.5-9B-Chat
+quant_available: false
+quick_facts:
+  - Dense bilingual/general text model in the Yi 1.5 family.
+  - Family card lists 4K context and 3.6T pretraining tokens.
+  - Apache-2.0 model family.

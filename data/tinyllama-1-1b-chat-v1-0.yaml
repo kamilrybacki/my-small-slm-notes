@@ -1,0 +1,12 @@
+name: TinyLlama-1.1B-Chat-v1.0
+params: 1.1
+license: Apache-2.0
+context_len: 2048
+modality: text
+release_date: 2024-01-16
+url: https://huggingface.co/TinyLlama/TinyLlama-1.1B-Chat-v1.0
+quant_available: false
+quick_facts:
+  - Llama-2-derived compact model trained on ~3T tokens.
+  - Chat variant is an aligned derivative of the 1.1B base.
+  - Important low-memory baseline, not a reasoning leader.

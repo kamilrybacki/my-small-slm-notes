@@ -1,0 +1,12 @@
+name: Llama-3.1-8B-Instruct
+params: 8
+license: Llama 3.1 Community License
+context_len: 131072
+modality: text
+release_date: 2024-07-23
+url: https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct
+quant_available: false
+quick_facts:
+  - Major 8B general-purpose text baseline with 128K context.
+  - Meta community licence, not an OSI-permissive licence.
+  - Large downstream ecosystem; no strict first-party GGUF.

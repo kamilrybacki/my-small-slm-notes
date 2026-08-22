@@ -1,0 +1,12 @@
+name: Granite-3.2-8B-Instruct
+params: 8
+license: Apache-2.0
+context_len: 131072
+modality: text
+release_date: 2025-02-26
+url: https://huggingface.co/ibm-granite/granite-3.2-8b-instruct
+quant_available: true
+quick_facts:
+  - IBM 8B long-context instruction model with switchable reasoning.
+  - Apache-2.0, with official IBM GGUF release.
+  - Positioned as a practical enterprise-oriented small model.

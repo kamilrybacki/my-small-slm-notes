@@ -1,0 +1,12 @@
+name: Granite-Vision-3.2-2B
+params: 2
+license: Apache-2.0
+context_len: unknown
+modality: text+vision
+release_date: 2025-02-26
+url: https://huggingface.co/ibm-granite/granite-vision-3.2-2b
+quant_available: true
+quick_facts:
+  - IBM 2B VLM aimed at document, chart and table understanding.
+  - Accepts image and text inputs.
+  - IBM ships an official GGUF repository for the family.

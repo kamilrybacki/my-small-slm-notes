@@ -1,0 +1,13 @@
+name: Gemma-3n-E2B-it
+params: 5
+active_params: 2
+license: Gemma
+context_len: 32768
+modality: text+vision+audio+video
+release_date: 2025-06-25
+url: https://huggingface.co/google/gemma-3n-e2b-it
+quant_available: true
+quick_facts:
+  - '"E2B" is effective-memory nomenclature; physical params ~5B.'
+  - "Native multimodal inputs: text, image, audio, video."
+  - Optimized for on-device use via per-layer parameter caching.

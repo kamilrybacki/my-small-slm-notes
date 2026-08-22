@@ -1,0 +1,12 @@
+name: Gemma-3-4B-it
+params: 4
+license: Gemma
+context_len: 131072
+modality: text+vision
+release_date: 2025-03-12
+url: https://huggingface.co/google/gemma-3-4b-it
+quant_available: true
+quick_facts:
+  - Multimodal Gemma 3 model for text and image input.
+  - Supports 140+ languages and 128K input context.
+  - Google provides pre-quantized GGUF/QAT artefacts.

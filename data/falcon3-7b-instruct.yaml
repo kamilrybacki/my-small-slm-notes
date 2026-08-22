@@ -1,0 +1,12 @@
+name: Falcon3-7B-Instruct
+params: 7
+license: TII Falcon License 2.0
+context_len: unknown
+modality: text
+release_date: 2024-12-01
+url: https://huggingface.co/tiiuae/Falcon3-7B-Instruct
+quant_available: false
+quick_facts:
+  - 7B instruction checkpoint from the Falcon3 family.
+  - Falcon3 includes both Transformer and Mamba architectures.
+  - Upstream reports parity with Qwen2.5-7B (vendor evaluation).
