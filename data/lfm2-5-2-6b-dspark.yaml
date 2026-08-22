@@ -1,0 +1,11 @@
+name: LFM2.5-2.6B-DSpark
+params: 0.33
+license: other
+context_len: 128000
+modality: text
+release_date: 2026-08-10
+url: https://huggingface.co/LiquidAI/LFM2.5-2.6B-DSpark
+quick_facts:
+  - 327.7M speculative-decoding drafter for the LFM2.5-2.6B target.
+  - Official GGUF and SGLang paths; target-verified greedy decoding preserves output quality.
+quant_available: true
