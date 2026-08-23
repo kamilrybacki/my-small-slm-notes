@@ -1,0 +1,12 @@
+name: LFM2.5-8B-A1B
+params: 8.47
+active_params: 1.5
+license: other
+context_len: 128000
+modality: text
+release_date: 2026-05-28
+url: https://huggingface.co/LiquidAI/LFM2.5-8B-A1B
+quick_facts:
+  - 8.3B-total / 1.5B-active hybrid MoE reasoning model designed for on-device assistants.
+  - Official GGUF, ONNX, and MLX releases; 128K context and tool-use support.
+quant_available: true
