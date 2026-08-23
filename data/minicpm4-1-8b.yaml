@@ -1,0 +1,11 @@
+name: MiniCPM4.1-8B
+params: 8.19
+license: apache-2.0
+context_len: 65536
+modality: text
+release_date: 2025-09-02
+url: https://huggingface.co/openbmb/MiniCPM4.1-8B
+quick_facts:
+  - 8B hybrid reasoning model for end-side deployment with trainable sparse attention.
+  - Official GGUF, GPTQ, AutoAWQ, MLX, and Marlin variants; supports dense or sparse inference.
+quant_available: true

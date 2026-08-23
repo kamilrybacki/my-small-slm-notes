@@ -336,5 +336,24 @@
       "880M text-to-speech model from Parler-TTS.",
       "Upstream project says Mini v1 was trained on 45K audiobook hours."
     ]
+  },
+  {
+    "id": "LiquidAI/LFM2.5-8B-A1B",
+    "modality": "text",
+    "quant_available": true,
+    "active_params": 1.5,
+    "quick_facts": [
+      "8.3B-total / 1.5B-active hybrid MoE reasoning model designed for on-device assistants.",
+      "Official GGUF, ONNX, and MLX releases; 128K context and tool-use support."
+    ]
+  },
+  {
+    "id": "openbmb/MiniCPM4.1-8B",
+    "modality": "text",
+    "quant_available": true,
+    "quick_facts": [
+      "8B hybrid reasoning model for end-side deployment with trainable sparse attention.",
+      "Official GGUF, GPTQ, AutoAWQ, MLX, and Marlin variants; supports dense or sparse inference."
+    ]
   }
 ]
