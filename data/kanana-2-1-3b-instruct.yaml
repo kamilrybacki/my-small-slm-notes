@@ -1,0 +1,11 @@
+name: kanana-2-1.3b-instruct
+params: 1.29
+license: other
+context_len: 32768
+modality: text
+release_date: 2026-07-24
+url: https://huggingface.co/kakaocorp/kanana-2-1.3b-instruct
+quick_facts:
+  - 1.3B instruction model released by Kakao for on-device deployment.
+  - Hybrid sliding-window/full attention supports 32K context while reducing KV-cache use.
+quant_available: false
