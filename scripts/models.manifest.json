@@ -364,5 +364,14 @@
       "1.3B instruction model released by Kakao for on-device deployment.",
       "Hybrid sliding-window/full attention supports 32K context while reducing KV-cache use."
     ]
+  },
+  {
+    "id": "OptGear/Opt.Gear-1B",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "1B Korean-English instruction model built for NPU-friendly on-device inference.",
+      "Hybrid attention and ConvKV mixer provide a 64K context with fixed-size local state."
+    ]
   }
 ]

@@ -1,0 +1,11 @@
+name: Opt.Gear-1B
+params: 0.84
+license: cc-by-nc-sa-4.0
+context_len: 65536
+modality: text
+release_date: 2026-08-02
+url: https://huggingface.co/OptGear/Opt.Gear-1B
+quick_facts:
+  - 1B Korean-English instruction model built for NPU-friendly on-device inference.
+  - Hybrid attention and ConvKV mixer provide a 64K context with fixed-size local state.
+quant_available: false
