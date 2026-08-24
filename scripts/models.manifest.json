@@ -355,5 +355,23 @@
       "8B hybrid reasoning model for end-side deployment with trainable sparse attention.",
       "Official GGUF, GPTQ, AutoAWQ, MLX, and Marlin variants; supports dense or sparse inference."
     ]
+  },
+  {
+    "id": "kakaocorp/kanana-2-1.3b-instruct",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "1.3B instruction model released by Kakao for on-device deployment.",
+      "Hybrid sliding-window/full attention supports 32K context while reducing KV-cache use."
+    ]
+  },
+  {
+    "id": "OptGear/Opt.Gear-1B",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "1B Korean-English instruction model built for NPU-friendly on-device inference.",
+      "Hybrid attention and ConvKV mixer provide a 64K context with fixed-size local state."
+    ]
   }
 ]
