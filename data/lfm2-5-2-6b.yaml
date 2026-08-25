@@ -1,0 +1,11 @@
+name: LFM2.5-2.6B
+params: 2.7
+license: other
+context_len: 131072
+modality: text
+release_date: 2026-07-28
+url: https://huggingface.co/LiquidAI/LFM2.5-2.6B
+quick_facts:
+  - 2.6B hybrid model post-trained for agentic work, including tool use and planning.
+  - 128K context; Liquid AI releases official GGUF weights for local deployment.
+quant_available: true
