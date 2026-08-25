@@ -131,6 +131,24 @@
     ]
   },
   {
+    "id": "LiquidAI/LFM2.5-2.6B",
+    "modality": "text",
+    "quant_available": true,
+    "quick_facts": [
+      "2.6B hybrid model post-trained for agentic work, including tool use and planning.",
+      "128K context; Liquid AI releases official GGUF weights for local deployment."
+    ]
+  },
+  {
+    "id": "nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16",
+    "modality": "text",
+    "quant_available": true,
+    "quick_facts": [
+      "3.97B hybrid Mamba-2/Transformer SLM with controllable reasoning traces.",
+      "NVIDIA targets edge agents; an official Q4_K_M GGUF supports llama.cpp deployment."
+    ]
+  },
+  {
     "id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
     "modality": "text",
     "quant_available": false,
