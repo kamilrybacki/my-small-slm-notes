@@ -122,6 +122,15 @@
     ]
   },
   {
+    "id": "LiquidAI/LFM2.5-2.6B",
+    "modality": "text",
+    "quant_available": true,
+    "quick_facts": [
+      "2.69B hybrid agent model with 128K context and built-in tool use.",
+      "Official GGUF, ONNX, and MLX formats make it suitable for local and edge deployment."
+    ]
+  },
+  {
     "id": "LiquidAI/LFM2.5-2.6B-DSpark",
     "modality": "text",
     "quant_available": true,
