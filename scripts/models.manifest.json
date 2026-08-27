@@ -373,5 +373,14 @@
       "1B Korean-English instruction model built for NPU-friendly on-device inference.",
       "Hybrid attention and ConvKV mixer provide a 64K context with fixed-size local state."
     ]
+  },
+  {
+    "id": "ibm-granite/granite-4.2-3b",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "3B Apache-2.0 reasoning model with selectable thinking effort and native tool calling.",
+      "Supports 128K context natively, with a documented long-context extension to 512K."
+    ]
   }
 ]
