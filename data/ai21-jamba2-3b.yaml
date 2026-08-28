@@ -1,0 +1,11 @@
+name: AI21-Jamba2-3B
+params: 3.03
+license: apache-2.0
+context_len: 262144
+modality: text
+release_date: 2026-01-06
+url: https://huggingface.co/ai21labs/AI21-Jamba2-3B
+quick_facts:
+  - 3B Apache-2.0 SSM-Transformer model designed for reliable on-device deployment.
+  - AI21 documents a 256K context window and support for consumer devices.
+quant_available: false
