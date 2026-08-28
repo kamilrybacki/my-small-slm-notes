@@ -400,5 +400,14 @@
       "2.35B Apache-2.0 multilingual instruction model for English, French, German, Italian, and Spanish.",
       "Official GGUF weights are published alongside the 32K-context checkpoint for edge and on-device use."
     ]
+  },
+  {
+    "id": "kakaocorp/kanana-2-3b-instruct",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "3B Korean-focused instruction model in Kakao's Kanana-2 SLM family, released with public Hugging Face weights in July 2026.",
+      "Its hybrid sliding-window/full-attention layout supports 32K context while reducing KV-cache use for practical deployment."
+    ]
   }
 ]

@@ -1,0 +1,11 @@
+name: kanana-2-3b-instruct
+params: 3.51
+license: other
+context_len: 32768
+modality: text
+release_date: 2026-07-24
+url: https://huggingface.co/kakaocorp/kanana-2-3b-instruct
+quick_facts:
+  - 3B Korean-focused instruction model in Kakao's Kanana-2 SLM family, released with public Hugging Face weights in July 2026.
+  - Its hybrid sliding-window/full-attention layout supports 32K context while reducing KV-cache use for practical deployment.
+quant_available: false
