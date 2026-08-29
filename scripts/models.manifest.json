@@ -373,5 +373,24 @@
       "1B Korean-English instruction model built for NPU-friendly on-device inference.",
       "Hybrid attention and ConvKV mixer provide a 64K context with fixed-size local state."
     ]
+  },
+  {
+    "id": "inclusionAI/Ling-3.0-tiny",
+    "modality": "text",
+    "quant_available": true,
+    "active_params": 1.3,
+    "quick_facts": [
+      "7.9B-total / 1.3B-active hybrid-MoE reasoning and agent model for local deployment.",
+      "Official BF16, FP8, and INT4 weights; validated on Apple Silicon and DGX Spark."
+    ]
+  },
+  {
+    "id": "nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16",
+    "modality": "text",
+    "quant_available": true,
+    "quick_facts": [
+      "3.97B hybrid Mamba2-Transformer SLM for controllable reasoning and tool use.",
+      "NVIDIA positions it for edge agentic workloads; official FP8 and GGUF variants are available."
+    ]
   }
 ]
