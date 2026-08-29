@@ -1,0 +1,11 @@
+name: NVIDIA-Nemotron-3-Nano-4B-BF16
+params: 3.97
+license: other
+context_len: 262144
+modality: text
+release_date: 2026-03-07
+url: https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-4B-BF16
+quick_facts:
+  - 3.97B hybrid Mamba2-Transformer SLM for controllable reasoning and tool use.
+  - NVIDIA positions it for edge agentic workloads; official FP8 and GGUF variants are available.
+quant_available: true
