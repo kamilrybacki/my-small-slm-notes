@@ -1,0 +1,11 @@
+name: LFM2.5-1.2B-Instruct
+params: 1.17
+license: other
+context_len: 128000
+modality: text
+release_date: 2026-01-06
+url: https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct
+quick_facts:
+  - 1.17B hybrid instruction model designed for on-device deployment with a 128K configured context window.
+  - Official GGUF, ONNX, and MLX variants support CPU, mobile, and Apple Silicon inference.
+quant_available: true
