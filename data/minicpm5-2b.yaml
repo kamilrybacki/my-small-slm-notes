@@ -1,0 +1,11 @@
+name: MiniCPM5-2B
+params: 2.52
+license: apache-2.0
+context_len: 131072
+modality: text
+release_date: 2026-09-06
+url: https://huggingface.co/openbmb/MiniCPM5-2B
+quick_facts:
+  - 2.52B dense causal language model for on-device assistants, coding, tool use, and reasoning.
+  - Official GGUF, MLX, and GPTQ releases; native 131K context.
+quant_available: true

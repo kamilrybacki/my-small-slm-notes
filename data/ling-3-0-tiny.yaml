@@ -1,0 +1,12 @@
+name: Ling-3.0-tiny
+params: 7.89
+active_params: 1.3
+license: mit
+context_len: 131072
+modality: text
+release_date: 2026-08-10
+url: https://huggingface.co/inclusionAI/Ling-3.0-tiny
+quick_facts:
+  - 7.9B-total hybrid reasoning MoE with 1.3B active parameters per token.
+  - Official BF16, FP8, and INT4 weights target local and resource-constrained deployment.
+quant_available: true

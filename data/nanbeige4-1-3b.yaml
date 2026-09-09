@@ -1,0 +1,11 @@
+name: Nanbeige4.1-3B
+params: 3.93
+license: apache-2.0
+context_len: 262144
+modality: text
+release_date: 2026-02-10
+url: https://huggingface.co/Nanbeige/Nanbeige4.1-3B
+quick_facts:
+  - 3B dense reasoning and agentic model, post-trained with SFT and reinforcement learning.
+  - Apache-2.0 weights for English and Chinese text generation.
+quant_available: false
