@@ -1,0 +1,11 @@
+name: LFM2.5-1.2B-Instruct
+params: 1.17
+license: other
+context_len: 128000
+modality: text
+release_date: 2026-01-06
+url: https://huggingface.co/LiquidAI/LFM2.5-1.2B-Instruct
+quick_facts:
+  - 1.2B hybrid instruction model from Liquid AI for on-device and edge deployment.
+  - Official GGUF weights support local llama.cpp inference.
+quant_available: true
