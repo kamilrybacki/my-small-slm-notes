@@ -382,5 +382,14 @@
       "1.2B hybrid instruction model from Liquid AI for on-device and edge deployment.",
       "Official GGUF weights support local llama.cpp inference."
     ]
+  },
+  {
+    "id": "openbmb/MiniCPM5-2B",
+    "modality": "text",
+    "quant_available": true,
+    "quick_facts": [
+      "2.52B-parameter Apache-2.0 causal LM for compact local assistants, coding agents, tool use, and reasoning.",
+      "Official GGUF, MLX 4-bit, GPTQ, and LiteRT-LM variants; native 131,072-token context."
+    ]
   }
 ]
