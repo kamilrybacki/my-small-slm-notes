@@ -1,0 +1,11 @@
+name: Villanova-2B-2603
+params: 2.35
+license: apache-2.0
+context_len: 32768
+modality: text
+release_date: 2026-04-01
+url: https://huggingface.co/VillanovaAI/Villanova-2B-2603
+quick_facts:
+  - 2.35B Apache-2.0 multilingual instruction model for English, French, German, Italian, and Spanish.
+  - Official GGUF weights are published alongside the 32K-context checkpoint for edge and on-device use.
+quant_available: true

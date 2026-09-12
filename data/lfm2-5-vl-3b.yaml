@@ -1,0 +1,11 @@
+name: LFM2.5-VL-3B
+params: 3.12
+license: other
+context_len: 128000
+modality: image+text->text
+release_date: 2026-08-11
+url: https://huggingface.co/LiquidAI/LFM2.5-VL-3B
+quick_facts:
+  - 3.12B multimodal model combining the LFM2.5-2.6B language backbone with a SigLIP2 NaFlex vision encoder.
+  - Official GGUF, ONNX, and MLX exports target local CPU, cross-platform edge, and Apple Silicon inference.
+quant_available: true

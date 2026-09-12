@@ -1,0 +1,11 @@
+name: granite-4.2-3b
+params: 3.66
+license: apache-2.0
+context_len: 131072
+modality: text
+release_date: 2026-08-07
+url: https://huggingface.co/ibm-granite/granite-4.2-3b
+quick_facts:
+  - 3B Apache-2.0 reasoning model with selectable thinking effort and native tool calling.
+  - Supports 128K context natively, with a documented long-context extension to 512K.
+quant_available: false

@@ -1,0 +1,11 @@
+name: LFM2.5-2.6B
+params: 2.7
+license: other
+context_len: 131072
+modality: text
+release_date: 2026-07-28
+url: https://huggingface.co/LiquidAI/LFM2.5-2.6B
+quick_facts:
+  - 2.69B hybrid agent model with 128K context and built-in tool use.
+  - Official GGUF, ONNX, and MLX formats make it suitable for local and edge deployment.
+quant_available: true
