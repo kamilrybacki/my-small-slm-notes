@@ -1,0 +1,12 @@
+name: NekoMind1.6-Base
+params: 1.52
+active_params: 0.3
+license: apache-2.0
+context_len: 32768
+modality: text
+release_date: 2026-06-23
+url: https://huggingface.co/nekocyrene/NekoMind1.6-Base
+quick_facts:
+  - Apache-2.0 MoE base model with 1.5B total parameters and approximately 300M activated per token.
+  - 32K context; 32 experts with top-4 routing and GQA target efficient long-context local inference.
+quant_available: false
