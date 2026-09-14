@@ -64,6 +64,62 @@ function factBlock(items, label, cls) {
     </div>`;
 }
 
+function fmtParams(v) {
+  return typeof v === 'number' ? `${esc(v)}B` : '&mdash;';
+}
+
+function sortValue(v) {
+  return v === 'unknown' || v === undefined || v === null ? '' : String(v);
+}
+
+function catalogTable(models) {
+  const rows = [...models]
+    .sort((a, b) => String(b.release_date).localeCompare(String(a.release_date)) || a.name.localeCompare(b.name))
+    .map((m) => {
+      const params = fmtParams(m.params);
+      const active = fmtParams(m.active_params);
+      const context = fmtCtx(m.context_len);
+      const quant = m.quant_available ? 'Yes' : 'No';
+      return `<tr data-name="${esc(sortValue(m.name))}" data-release_date="${esc(sortValue(m.release_date))}" data-params="${esc(sortValue(m.params))}" data-active_params="${esc(sortValue(m.active_params))}" data-context_len="${esc(sortValue(m.context_len))}" data-license="${esc(sortValue(m.license))}" data-modality="${esc(sortValue(m.modality))}" data-quant_available="${m.quant_available ? '1' : '0'}">
+  <td class="model"><a href="${esc(m.url)}" rel="noopener noreferrer" target="_blank">${esc(m.name)}</a></td>
+  <td><time datetime="${esc(m.release_date)}">${esc(m.release_date)}</time></td>
+  <td>${params}</td>
+  <td>${active}</td>
+  <td>${context}</td>
+  <td>${esc(m.license)}</td>
+  <td>${esc(m.modality)}</td>
+  <td>${quant}</td>
+</tr>`;
+    })
+    .join('\n');
+  const header = (label, key, initial = false) => `<th scope="col"${initial ? ' aria-sort="descending"' : ''}><button type="button" data-sort="${key}">${label}<span class="sort-mark" aria-hidden="true">${initial ? ' ↓' : ''}</span></button></th>`;
+  return `<section class="catalog-table" aria-labelledby="catalog-table-h">
+  <div class="catalog-table-h">
+    <div>
+      <p class="section-kicker">Compare at a glance</p>
+      <h2 id="catalog-table-h">All specimens</h2>
+    </div>
+    <p>${models.length} models &middot; select a column to sort</p>
+  </div>
+  <div class="table-scroll" tabindex="0" aria-label="Scrollable model comparison table">
+    <table>
+      <caption>Sortable catalog of all models</caption>
+      <thead><tr>
+        ${header('Model', 'name')}
+        ${header('Released', 'release_date', true)}
+        ${header('Parameters', 'params')}
+        ${header('Active', 'active_params')}
+        ${header('Context', 'context_len')}
+        ${header('License', 'license')}
+        ${header('Modality', 'modality')}
+        ${header('Quant', 'quant_available')}
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>
+</section>`;
+}
+
 function card(m, n) {
   const no = String(n).padStart(3, '0');
   const params = m.active_params
@@ -140,11 +196,12 @@ ${nav}
   </nav>
 </header>
 <main id="main">
+${catalogTable(Object.values(groups).flat())}
 ${sections}
 </main>
 ${banner()}
 <footer class="foot">
-  <p>Data lives as one YAML file per model in <code>data/</code>. Updated via reviewed pull requests.</p>
+  <p>Data lives as one YAML file per model in <code>data/</code>. Updates ship directly to <code>main</code>.</p>
   <p>Built statically &middot; no runtime deps</p>
 </footer>
 </div>
@@ -158,6 +215,41 @@ ${banner()}
   }
   tick();
   setInterval(tick, 36e5);
+
+  var catalog = document.querySelector('.catalog-table table');
+  if (!catalog) return;
+  var numericColumns = { params: true, active_params: true, context_len: true, quant_available: true };
+  var direction = { release_date: 'descending' };
+
+  function sortCatalog(key) {
+    var next = direction[key] === 'descending' ? 'ascending' : 'descending';
+    direction = {};
+    direction[key] = next;
+    var rows = Array.prototype.slice.call(catalog.tBodies[0].rows);
+    rows.sort(function (a, b) {
+      var left = a.dataset[key] || '';
+      var right = b.dataset[key] || '';
+      if (!left || !right) return !left && !right ? 0 : (!left ? 1 : -1);
+      var result = numericColumns[key]
+        ? Number(left) - Number(right)
+        : left.localeCompare(right, undefined, { numeric: true });
+      return next === 'ascending' ? result : -result;
+    });
+    rows.forEach(function (row) { catalog.tBodies[0].appendChild(row); });
+    Array.prototype.forEach.call(catalog.querySelectorAll('th'), function (th) {
+      var button = th.querySelector('button');
+      var mark = th.querySelector('.sort-mark');
+      if (!button || !mark) return;
+      var active = button.dataset.sort === key;
+      th.setAttribute('aria-sort', active ? next : 'none');
+      mark.textContent = active ? (next === 'ascending' ? ' ↑' : ' ↓') : '';
+    });
+  }
+
+  catalog.addEventListener('click', function (event) {
+    var button = event.target.closest('button[data-sort]');
+    if (button) sortCatalog(button.dataset.sort);
+  });
 })();
 </script>
 </body>
@@ -214,6 +306,29 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-0.01em}
 .nav-label{font-family:var(--display);font-weight:600;font-size:14px}
 .nav-leader{flex:1;border-bottom:1px dotted var(--dash);margin:0 4px 4px;min-width:24px}
 .nav-count{color:var(--muted);font-size:12px;white-space:nowrap}
+
+/* catalog table */
+.catalog-table{margin-top:clamp(40px,7vw,56px);border-top:2px solid var(--rule-strong);padding-top:16px}
+.catalog-table-h{display:flex;align-items:end;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;margin-bottom:12px}
+.catalog-table-h p{margin:0;color:var(--muted);font-size:12px}
+.section-kicker{font-size:10.5px!important;letter-spacing:.1em;text-transform:uppercase;color:var(--oxide)!important;font-weight:600}
+.catalog-table h2{margin:2px 0 0;font-size:clamp(20px,4vw,26px);font-weight:600;letter-spacing:-.02em}
+.table-scroll{overflow-x:auto;border-top:1px solid var(--rule-strong);border-bottom:1px solid var(--rule-strong);scrollbar-color:var(--dash) var(--wash)}
+.table-scroll:focus-visible{outline-offset:3px}
+table{width:100%;min-width:760px;border-collapse:collapse;font-size:12px;line-height:1.35}
+caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+thead{background:var(--wash)}
+th,td{padding:10px 12px;text-align:left;vertical-align:middle;border-bottom:1px solid var(--rule)}
+th{white-space:nowrap;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+th button{appearance:none;border:0;padding:0;background:transparent;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;cursor:pointer}
+th button:hover{color:var(--green-deep)}
+.sort-mark{color:var(--oxide);font-size:12px}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--wash)}
+td.model{font-family:var(--display);font-size:13px;font-weight:600;min-width:190px}
+td.model a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--green)}
+td.model a:hover{color:var(--green-deep)}
+td:nth-child(2),td:nth-child(3),td:nth-child(4),td:nth-child(5),td:nth-child(8){white-space:nowrap}
 
 /* buckets */
 .bucket{margin-top:clamp(40px,7vw,56px);border-top:2px solid var(--rule-strong);padding-top:16px}
