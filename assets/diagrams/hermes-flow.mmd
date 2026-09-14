@@ -4,15 +4,12 @@ sequenceDiagram
     participant Hermes as 🤖 Hermes
     participant HF as 🤗 HuggingFace
     participant GH as 🐙 GitHub
-    participant You as 🧑 You
     participant Pages as 🌐 Pages
     Cron->>Hermes: "add / refresh model X"
     Hermes->>HF: GET model info + config.json
     HF-->>Hermes: params · license · date · context_len
-    Hermes->>Hermes: write data/{slug}.yaml (grounded)
-    Hermes->>GH: push hermes/update-* (deploy key)
-    GH->>GH: auto-open PR · run validate-data
-    GH-->>You: PR ready ✅ checks green
-    You->>GH: review and merge to main 🔒
-    GH->>Pages: build.mjs → deploy
-    Pages-->>You: site updated
+    Hermes->>Hermes: write data/{slug}.yaml + validate
+    Hermes->>GH: push main
+    GH->>GH: validate · test · build
+    GH->>Pages: deploy
+    Pages-->>Hermes: site updated

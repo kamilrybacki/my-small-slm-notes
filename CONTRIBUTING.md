@@ -42,8 +42,8 @@ quant_available: true       # required. Boolean.
 ### Bucket
 Computed from `params`, never stored: `< 3` → sub, `3–8` → mid, `> 8` → large.
 
-## Before opening a PR
+## Before pushing to `main`
 ```bash
 npm run validate && npm test && npm run build
 ```
-Green locally → green in CI.
+Green locally → green in CI and Pages.

@@ -1,18 +1,11 @@
 name: Validate data
 
-# Runs on PRs and on Hermes branch pushes. This is the REQUIRED status check
-# that main's branch protection gates on. It also runs on hermes/** pushes so
-# the check is present on the head SHA even if the PR was opened by GITHUB_TOKEN
-# (which does not re-trigger pull_request workflows).
-# No paths filter on pull_request: a REQUIRED check that gets skipped by a path
-# filter blocks the PR forever ("Expected — waiting for status"). The job is
-# seconds long — always run it. Keep push:hermes/** so the check lands on the
-# head SHA even when GITHUB_TOKEN opened the PR (it doesn't re-trigger PR runs).
+# Runs on pushes to main and on PRs. Pages deploy also validates before publish.
 on:
   pull_request:
   push:
     branches:
-      - 'hermes/**'
+      - main
 
 permissions:
   contents: read

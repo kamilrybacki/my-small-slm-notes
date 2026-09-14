@@ -1,6 +1,5 @@
 flowchart LR
-    A["data/&lt;slug&gt;.yaml<br/>one file per model"] -->|git push| B{"Pull Request"}
-    B -->|CI: validate-data| C["✅ schema · slug<br/>anti-injection · dedup"]
-    C -->|you merge| D["main<br/>🔒 branch-protected"]
-    D --> E["build.mjs<br/>YAML → index.html"]
-    E --> F["🌐 GitHub Pages"]
+    A["data/&lt;slug&gt;.yaml<br/>one file per model"] -->|git push| B["main"]
+    B -->|CI: validate · test · build| C["✅ schema · slug<br/>anti-injection · dedup"]
+    C --> D["build.mjs<br/>YAML → index.html"]
+    D --> E["🌐 GitHub Pages"]

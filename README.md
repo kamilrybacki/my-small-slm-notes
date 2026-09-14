@@ -81,32 +81,27 @@ flowchart TB
 
 This is a **git-driven static site** — no backend, no database, no public write endpoint. The source of truth is a folder of YAML files; everything else is derived.
 
-<img alt="Git-driven pipeline: data YAML to PR to main to build to GitHub Pages" src="assets/diagrams/pipeline.png">
-
 <details><summary>Mermaid source</summary>
 
 ```mermaid
 flowchart LR
-    A["data/{slug}.yaml<br/>one file per model"] -->|git push| B{"Pull Request"}
-    B -->|CI: validate-data| C["✅ schema · slug<br/>anti-injection · dedup"]
-    C -->|you merge| D["main<br/>🔒 branch-protected"]
-    D --> E["build.mjs<br/>YAML → index.html"]
-    E --> F["🌐 GitHub Pages"]
+    A["data/{slug}.yaml<br/>one file per model"] -->|git push| B["main"]
+    B -->|CI: validate · test · build| C["✅ schema · slug<br/>anti-injection · dedup"]
+    C --> D["build.mjs<br/>YAML → index.html"]
+    D --> E["🌐 GitHub Pages"]
 ```
 
 </details>
 
 - **Source of truth:** one `data/<slug>.yaml` per model. The filename **must** equal the model's slug.
-- **Build:** [`scripts/build.mjs`](scripts/build.mjs) reads every `data/*.yaml`, sorts by params into the three buckets, and emits a single self-contained `dist/index.html` (+ machine-readable `dist/models.json`). No framework, no runtime JS.
-- **Publish:** merging to `main` triggers [`deploy.yml`](.github/workflows/deploy.yml) → GitHub Pages.
+- **Build:** [`scripts/build.mjs`](scripts/build.mjs) reads every `data/*.yaml`, sorts by params into the three buckets, and emits a single self-contained `dist/index.html` (+ machine-readable `dist/models.json`). No framework; minimal client-side JS powers table sorting.
+- **Publish:** a push to `main` triggers validation, build, and [`deploy.yml`](.github/workflows/deploy.yml) → GitHub Pages.
 
 ## 🤖 How Hermes keeps it current
 
 Hermes keeps the catalog warm from the homelab: weekly sweeps plus on-demand refreshes, with HuggingFace as the **factual anchor** rather than vibes, reposts, or benchmark folklore. The sync path extracts the useful boring facts — total safetensors params, license card data, creation date, configured context length — then CI validates every proposed YAML before it can become site data.
 
-The safety story is intentionally unglamorous: Hermes writes updates to `hermes/update-*`, the deploy key can **propose but never merge**, GitHub Actions opens the PR, and `main` stays protected. Automation does the research and the paperwork; **a human keeps the final `git merge` button.** A small human gate stops a very enthusiastic homelab goblin from silently rewriting the field guide. 🧌
-
-<img alt="How Hermes adds a model: cron to Hermes to HuggingFace to GitHub PR to human merge to Pages" src="assets/diagrams/hermes-flow.png">
+Hermes validates updates locally, then pushes the resulting commit directly to `main`. GitHub Actions validates and builds the static artefact before GitHub Pages publishes it. Automation does the research and paperwork; the deployed site remains fully derived from reviewed YAML records.
 
 <details><summary>Mermaid source</summary>
 
@@ -117,18 +112,15 @@ sequenceDiagram
     participant Hermes as 🤖 Hermes
     participant HF as 🤗 HuggingFace
     participant GH as 🐙 GitHub
-    participant You as 🧑 You
     participant Pages as 🌐 Pages
     Cron->>Hermes: "add / refresh model X"
     Hermes->>HF: GET model info + config.json
     HF-->>Hermes: params · license · date · context_len
-    Hermes->>Hermes: write data/{slug}.yaml (grounded)
-    Hermes->>GH: push hermes/update-* (deploy key)
-    GH->>GH: auto-open PR · run validate-data
-    GH-->>You: PR ready ✅ checks green
-    You->>GH: review and merge to main 🔒
-    GH->>Pages: build.mjs → deploy
-    Pages-->>You: site updated
+    Hermes->>Hermes: write data/{slug}.yaml + validate
+    Hermes->>GH: push main
+    GH->>GH: validate · test · build
+    GH->>Pages: deploy
+    Pages-->>Hermes: site updated
 ```
 
 </details>
@@ -145,8 +137,8 @@ sequenceDiagram
    | `release_date` | `createdAt` |
    | `context_len` | `{id}/resolve/main/config.json` → `max_position_embeddings` |
 
-3. Commits the resulting `data/*.yaml` to a `hermes/update-<date>` branch and pushes it with a **write-scoped deploy key** (stored in Vault — never baked into an image). Hermes never calls `gh`.
-4. [`auto-pr.yml`](.github/workflows/auto-pr.yml) opens the PR. **A human merges.** Because `main` is branch-protected and requires the `validate-data` check, the deploy key **cannot** bypass the gate — the merge is the one and only door.
+3. Validates (`npm run validate`, `npm test`, `npm run build`), commits, and pushes the resulting `data/*.yaml` directly to `main`.
+4. [`validate.yml`](.github/workflows/validate.yml) repeats validation, tests, and build on the pushed commit; [`deploy.yml`](.github/workflows/deploy.yml) publishes the generated site.
 
 > Gated repos (Llama, Gemma) expose no anonymous `config.json`, so `context_len` honestly falls back to the `unknown` sentinel unless `HF_TOKEN` is set.
 
@@ -154,11 +146,11 @@ sequenceDiagram
 
 **Automated — Hermes.** Weekly `agent-cron` + on-demand ("add model X" in Discord). See above.
 
-**Manual — you.** Edit `data/<slug>.yaml` (GitHub web UI or a branch), open a PR, let CI pass, merge. Same single source of truth, same gate. See [CONTRIBUTING.md](CONTRIBUTING.md).
+**Manual — you.** Edit `data/<slug>.yaml`, run validation, then commit and push directly to `main`. Same single source of truth, same deployment path. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## 🛡️ The validation gate
 
-[`scripts/validate.mjs`](scripts/validate.mjs) runs on every PR and every `hermes/**` push. **Hard failures block the merge:**
+[`scripts/validate.mjs`](scripts/validate.mjs) runs locally before Hermes pushes, in [`validate.yml`](.github/workflows/validate.yml) on every `main` push, and in [`deploy.yml`](.github/workflows/deploy.yml) before Pages publishes. **Hard failures stop the workflow:**
 
 1. YAML parses.
 2. Schema valid ([`schema/model.schema.json`](schema/model.schema.json)) — all required fields present.
@@ -210,12 +202,11 @@ Slug rule: `name.toLowerCase()`, non-alphanumeric runs → `-`, trimmed (`Qwen2.
 | Step | Where | Why |
 |---|---|---|
 | **A** | Settings → Pages → Source: **GitHub Actions** | `deploy.yml` can't publish without it. |
-| **B** | Settings → Actions → General → ✅ **Allow Actions to create and approve PRs** | Hermes's `auto-pr.yml` needs it (off by default). |
-| **C** | Settings → Branches → protect `main`, require **`validate-data`** | Makes the gate real — set *after* the first CI run registers the check. Required-checks match the **job** name, not the workflow title. |
-| **D** | Settings → Deploy keys → add Hermes's **write** key; store the private half in Vault | Hermes's push path. Optional ruleset: restrict it to `hermes/*` refs. |
+| **B** | Settings → Branches/rulesets → allow the intended Hermes writer to push to `main` | Hermes publishes validated catalog content directly. |
+| **C** | Settings → Deploy keys → add Hermes's **write** key; store the private half in Vault | Hermes's direct push path. |
 
 ```bash
-# D — generate Hermes's write-scoped deploy key
+# C — generate Hermes's write-scoped deploy key
 ssh-keygen -t ed25519 -f my-small-slm-notes-deploy -N "" -C "hermes-my-small-slm-notes"
 # GitHub: Settings → Deploy keys → Add → paste .pub → ✅ Allow write access
 vault kv put secret/my-small-slm-notes-deploy private_key=@my-small-slm-notes-deploy
@@ -233,11 +224,11 @@ scripts/models.manifest.json   which models + curated quick_facts/experience
 scripts/build.mjs              YAML → dist/index.html + models.json
 scripts/validate.mjs           the CI gate
 test/                          node:test suites (lib + data integrity)
-.github/workflows/             auto-pr · validate · deploy
+.github/workflows/             validate · deploy
 ```
 
 ## 📄 License
 
 Code under [MIT](LICENSE). Model metadata is factual; every entry links its upstream HuggingFace source.
 
-<div align="center"><sub>Curated by a human and <a href="#-how-hermes-keeps-it-current">Hermes</a> 🤖 · built statically · updated by pull request.</sub></div>
+<div align="center"><sub>Curated by a human and <a href="#-how-hermes-keeps-it-current">Hermes</a> 🤖 · built statically · updated directly on main.</sub></div>

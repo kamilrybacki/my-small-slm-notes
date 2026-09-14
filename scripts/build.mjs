@@ -74,7 +74,7 @@ function sortValue(v) {
 
 function catalogTable(models) {
   const rows = [...models]
-    .sort((a, b) => String(b.release_date).localeCompare(String(a.release_date)) || a.name.localeCompare(b.name))
+    .sort((a, b) => sortValue(b.release_date).localeCompare(sortValue(a.release_date)) || a.name.localeCompare(b.name))
     .map((m) => {
       const params = fmtParams(m.params);
       const active = fmtParams(m.active_params);
@@ -82,7 +82,7 @@ function catalogTable(models) {
       const quant = m.quant_available ? 'Yes' : 'No';
       return `<tr data-name="${esc(sortValue(m.name))}" data-release_date="${esc(sortValue(m.release_date))}" data-params="${esc(sortValue(m.params))}" data-active_params="${esc(sortValue(m.active_params))}" data-context_len="${esc(sortValue(m.context_len))}" data-license="${esc(sortValue(m.license))}" data-modality="${esc(sortValue(m.modality))}" data-quant_available="${m.quant_available ? '1' : '0'}">
   <td class="model"><a href="${esc(m.url)}" rel="noopener noreferrer" target="_blank">${esc(m.name)}</a></td>
-  <td><time datetime="${esc(m.release_date)}">${esc(m.release_date)}</time></td>
+  <td>${fmtDate(m.release_date)}</td>
   <td>${params}</td>
   <td>${active}</td>
   <td>${context}</td>
