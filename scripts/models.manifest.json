@@ -473,5 +473,23 @@
       "3B dense reasoning and agentic model, post-trained with SFT and reinforcement learning.",
       "Apache-2.0 weights for English and Chinese text generation."
     ]
+  },
+  {
+    "id": "DALabCommunity/Haidass1.5-143M",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "143M bilingual English/Chinese base model trained from scratch on approximately 400B tokens in Huawei's Ascend ecosystem.",
+      "A compact Qwen3-style research checkpoint with a 4K context window and a 64K bilingual vocabulary."
+    ]
+  },
+  {
+    "id": "eulogik/Bharat-Tiny-LLM-v3",
+    "modality": "text",
+    "quant_available": true,
+    "quick_facts": [
+      "1.72B Hindi, Hinglish, and English SLM derived from Qwen3-1.7B-Base with 300 added Devanagari tokens.",
+      "Official 1.0 GB Q4_K_M GGUF weights target fully offline llama.cpp, Ollama, and browser WebGPU use."
+    ]
   }
 ]
