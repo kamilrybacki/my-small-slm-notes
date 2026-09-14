@@ -1,0 +1,11 @@
+name: Haidass1.5-143M
+params: 0.14
+license: apache-2.0
+context_len: 4096
+modality: text
+release_date: 2026-08-28
+url: https://huggingface.co/DALabCommunity/Haidass1.5-143M
+quick_facts:
+  - 143M bilingual English/Chinese base model trained from scratch on approximately 400B tokens in Huawei's Ascend ecosystem.
+  - A compact Qwen3-style research checkpoint with a 4K context window and a 64K bilingual vocabulary.
+quant_available: false

@@ -1,0 +1,11 @@
+name: Bharat-Tiny-LLM-v3
+params: 1.72
+license: apache-2.0
+context_len: 32768
+modality: text
+release_date: 2026-08-26
+url: https://huggingface.co/eulogik/Bharat-Tiny-LLM-v3
+quick_facts:
+  - 1.72B Hindi, Hinglish, and English SLM derived from Qwen3-1.7B-Base with 300 added Devanagari tokens.
+  - Official 1.0 GB Q4_K_M GGUF weights target fully offline llama.cpp, Ollama, and browser WebGPU use.
+quant_available: true
