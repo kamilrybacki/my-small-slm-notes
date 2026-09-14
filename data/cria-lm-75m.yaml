@@ -1,0 +1,11 @@
+name: cRia-LM-75M
+params: 0.08
+license: apache-2.0
+context_len: 4096
+modality: text
+release_date: 2026-08-20
+url: https://huggingface.co/sz14/cRia-LM-75M
+quick_facts:
+  - 75.7M Apache-2.0 base model using a relaxed recursive Transformer with 24 effective layers.
+  - 4,096-token context and reported 307 MiB warmed CUDA allocation make it an unusually compact local experiment.
+quant_available: false
