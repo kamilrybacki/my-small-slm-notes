@@ -491,6 +491,9 @@
     "quick_facts": [
       "Apache-2.0 MoE base model with 1.5B total parameters and approximately 300M activated per token.",
       "32K context; 32 experts with top-4 routing and GQA target efficient long-context local inference."
+    ]
+  },
+  {
     "id": "DALabCommunity/Haidass1.5-143M",
     "modality": "text",
     "quant_available": false,
@@ -506,6 +509,24 @@
     "quick_facts": [
       "1.72B Hindi, Hinglish, and English SLM derived from Qwen3-1.7B-Base with 300 added Devanagari tokens.",
       "Official 1.0 GB Q4_K_M GGUF weights target fully offline llama.cpp, Ollama, and browser WebGPU use."
+    ]
+  },
+  {
+    "id": "Qwen/Qwen3-4B-Instruct-2507",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "4.02B Apache-2.0 non-thinking instruction model in Qwen's Qwen3 family.",
+      "Official published configuration exposes a 262,144-token native context window."
+    ]
+  },
+  {
+    "id": "microsoft/Phi-4-mini-reasoning",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "3.8B MIT-licensed reasoning model specialized for mathematical problem solving.",
+      "Microsoft's official card provides downloadable safetensors; its published config exposes a 131K context window."
     ]
   }
 ]

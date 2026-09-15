@@ -1,0 +1,11 @@
+name: Qwen3-4B-Instruct-2507
+params: 4.02
+license: apache-2.0
+context_len: 262144
+modality: text
+release_date: 2025-08-05
+url: https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507
+quick_facts:
+  - 4.02B Apache-2.0 non-thinking instruction model in Qwen's Qwen3 family.
+  - Official published configuration exposes a 262,144-token native context window.
+quant_available: false
