@@ -1,0 +1,11 @@
+name: ARO-BabyLM-1B
+params: 0.12
+license: apache-2.0
+context_len: 1024
+modality: text
+release_date: 2026-09-01
+url: https://huggingface.co/AwakeningOS/ARO-BabyLM-1B
+quick_facts:
+  - 116.6M causal language model trained from scratch under the BabyLM 2026 Strict word-exposure budget.
+  - Official repository includes the checkpoint, tokenizer, custom Transformers integration, and inference-reproduction source.
+quant_available: false

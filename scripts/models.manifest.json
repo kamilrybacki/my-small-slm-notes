@@ -528,5 +528,14 @@
       "3.8B MIT-licensed reasoning model specialized for mathematical problem solving.",
       "Microsoft's official card provides downloadable safetensors; its published config exposes a 131K context window."
     ]
+  },
+  {
+    "id": "AwakeningOS/ARO-BabyLM-1B",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "116.6M causal language model trained from scratch under the BabyLM 2026 Strict word-exposure budget.",
+      "Official repository includes the checkpoint, tokenizer, custom Transformers integration, and inference-reproduction source."
+    ]
   }
 ]
