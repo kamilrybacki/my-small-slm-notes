@@ -1,0 +1,11 @@
+name: MedPsy-1.7B
+params: 2.03
+license: apache-2.0
+context_len: 40960
+modality: text
+release_date: 2026-04-28
+url: https://huggingface.co/qvac/MedPsy-1.7B
+quick_facts:
+  - 1.7B Apache-2.0 medical SLM post-trained from Qwen3-1.7B for edge and smartphone deployment.
+  - Official GGUF variants enable local llama.cpp inference; the model card reports 62.62 average on its closed-ended medical benchmark suite.
+quant_available: true

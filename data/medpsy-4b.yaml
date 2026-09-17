@@ -1,0 +1,11 @@
+name: MedPsy-4B
+params: 4.41
+license: apache-2.0
+context_len: 262144
+modality: text
+release_date: 2026-04-28
+url: https://huggingface.co/qvac/MedPsy-4B
+quick_facts:
+  - 4B Apache-2.0 medical SLM post-trained from Qwen3-4B-Thinking-2507 for private edge deployment.
+  - Official GGUF variants support local llama.cpp inference; the model card reports 70.54 average on its closed-ended medical benchmark suite.
+quant_available: true
