@@ -1,0 +1,11 @@
+name: Spark-X2.5-1.7B
+params: 1.71
+license: apache-2.0
+context_len: 1048576
+modality: text
+release_date: 2026-08-24
+url: https://huggingface.co/XHToken/Spark-X2.5-1.7B
+quick_facts:
+  - 1.7B Apache-2.0 general-purpose model with a native 1M-token context window.
+  - Hybrid full/sliding-window attention targets efficient local, long-context inference.
+quant_available: false

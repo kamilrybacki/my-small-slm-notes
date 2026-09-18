@@ -537,5 +537,23 @@
       "116.6M causal language model trained from scratch under the BabyLM 2026 Strict word-exposure budget.",
       "Official repository includes the checkpoint, tokenizer, custom Transformers integration, and inference-reproduction source."
     ]
+  },
+  {
+    "id": "XHToken/Spark-X2.5-1.7B",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "1.7B Apache-2.0 general-purpose model with a native 1M-token context window.",
+      "Hybrid full/sliding-window attention targets efficient local, long-context inference."
+    ]
+  },
+  {
+    "id": "ulamai/Ulam-1-Small",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "3.086B MIT-licensed mathematical-reasoning model with a 131K-token configuration.",
+      "Standalone BF16 Transformers checkpoint; its card documents native Transformers and vLLM local serving."
+    ]
   }
 ]

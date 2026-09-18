@@ -1,0 +1,11 @@
+name: Ulam-1-Small
+params: 3.09
+license: mit
+context_len: 131072
+modality: text
+release_date: 2026-08-19
+url: https://huggingface.co/ulamai/Ulam-1-Small
+quick_facts:
+  - 3.086B MIT-licensed mathematical-reasoning model with a 131K-token configuration.
+  - Standalone BF16 Transformers checkpoint; its card documents native Transformers and vLLM local serving.
+quant_available: false
