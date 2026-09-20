@@ -1,0 +1,11 @@
+name: Qwen3.5-4B
+params: 4.66
+license: apache-2.0
+context_len: 262144
+modality: image+text->text
+release_date: 2026-02-27
+url: https://huggingface.co/Qwen/Qwen3.5-4B
+quick_facts:
+  - 4B Apache-2.0 multimodal model with a 262K native context window, extensible to approximately 1M tokens.
+  - Official downloadable weights support text-only operation that skips the vision encoder to reduce memory use.
+quant_available: false

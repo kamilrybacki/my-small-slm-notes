@@ -564,5 +564,14 @@
       "3B Apache-2.0 multimodal instruct model with a 256K context window.",
       "Mistral explicitly designed it for edge deployment; its official card says FP8 fits in 8 GB VRAM and it can be further quantized."
     ]
+  },
+  {
+    "id": "Qwen/Qwen3.5-4B",
+    "modality": "image+text->text",
+    "quant_available": false,
+    "quick_facts": [
+      "4B Apache-2.0 multimodal model with a 262K native context window, extensible to approximately 1M tokens.",
+      "Official downloadable weights support text-only operation that skips the vision encoder to reduce memory use."
+    ]
   }
 ]
