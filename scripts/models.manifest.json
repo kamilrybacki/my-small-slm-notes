@@ -579,7 +579,7 @@
     "modality": "text",
     "quant_available": true,
     "quick_facts": [
-      "230M hybrid text model designed for on-device deployment with a 32K context window.",
+      "230M hybrid text model designed for on-device deployment.",
       "Official card reports 213 tok/s decode on Galaxy S25 Ultra and 42 tok/s on Raspberry Pi 5; official GGUF and MLX variants are available."
     ]
   },
