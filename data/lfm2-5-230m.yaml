@@ -1,0 +1,11 @@
+name: LFM2.5-230M
+params: 0.23
+license: other
+context_len: 128000
+modality: text
+release_date: 2026-06-24
+url: https://huggingface.co/LiquidAI/LFM2.5-230M
+quick_facts:
+  - 230M hybrid text model designed for on-device deployment with a 32K context window.
+  - Official card reports 213 tok/s decode on Galaxy S25 Ultra and 42 tok/s on Raspberry Pi 5; official GGUF and MLX variants are available.
+quant_available: true

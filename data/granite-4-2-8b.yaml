@@ -1,0 +1,11 @@
+name: granite-4.2-8b
+params: 8.79
+license: apache-2.0
+context_len: 131072
+modality: text
+release_date: 2026-08-07
+url: https://huggingface.co/ibm-granite/granite-4.2-8b
+quick_facts:
+  - 8.79B Apache-2.0 reasoning and tool-calling model with 128K native context and a documented 512K extension.
+  - Official IBM card positions Granite's compact models for edge deployment and includes downloadable Transformers weights.
+quant_available: false

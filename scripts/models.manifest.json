@@ -573,5 +573,23 @@
       "4B Apache-2.0 multimodal model with a 262K native context window, extensible to approximately 1M tokens.",
       "Official downloadable weights support text-only operation that skips the vision encoder to reduce memory use."
     ]
+  },
+  {
+    "id": "LiquidAI/LFM2.5-230M",
+    "modality": "text",
+    "quant_available": true,
+    "quick_facts": [
+      "230M hybrid text model designed for on-device deployment with a 32K context window.",
+      "Official card reports 213 tok/s decode on Galaxy S25 Ultra and 42 tok/s on Raspberry Pi 5; official GGUF and MLX variants are available."
+    ]
+  },
+  {
+    "id": "ibm-granite/granite-4.2-8b",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "8.79B Apache-2.0 reasoning and tool-calling model with 128K native context and a documented 512K extension.",
+      "Official IBM card positions Granite's compact models for edge deployment and includes downloadable Transformers weights."
+    ]
   }
 ]
