@@ -1,0 +1,11 @@
+name: Ministral-3-3B-Instruct-2512
+params: 3.85
+license: apache-2.0
+context_len: 262144
+modality: image+text->text
+release_date: 2025-10-31
+url: https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512
+quick_facts:
+  - 3B Apache-2.0 multimodal instruct model with a 256K context window.
+  - Mistral explicitly designed it for edge deployment; its official card says FP8 fits in 8 GB VRAM and it can be further quantized.
+quant_available: true

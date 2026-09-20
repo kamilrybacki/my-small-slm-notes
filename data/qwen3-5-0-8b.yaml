@@ -1,0 +1,11 @@
+name: Qwen3.5-0.8B
+params: 0.87
+license: apache-2.0
+context_len: 262144
+modality: image+text->text
+release_date: 2026-02-28
+url: https://huggingface.co/Qwen/Qwen3.5-0.8B
+quick_facts:
+  - 0.8B Apache-2.0 multimodal model with 262K native context.
+  - Official weights are downloadable; Qwen positions this smallest variant for prototyping and task-specific fine-tuning.
+quant_available: false

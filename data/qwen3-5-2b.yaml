@@ -1,0 +1,11 @@
+name: Qwen3.5-2B
+params: 2.27
+license: apache-2.0
+context_len: 262144
+modality: image+text->text
+release_date: 2026-02-28
+url: https://huggingface.co/Qwen/Qwen3.5-2B
+quick_facts:
+  - 2B Apache-2.0 multimodal model with 262K native context.
+  - Official downloadable weights make it a compact Qwen3.5 option for local development and fine-tuning.
+quant_available: false
