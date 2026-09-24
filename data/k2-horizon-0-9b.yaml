@@ -1,0 +1,11 @@
+name: K2-Horizon-0.9B
+params: 1.08
+license: apache-2.0
+context_len: 131072
+modality: text
+release_date: 2026-09-01
+url: https://huggingface.co/IFM/K2-Horizon-0.9B
+quick_facts:
+  - Apache-2.0 dense reasoning model in IFM’s K2 Horizon family; the official model card reports up to 131,072-token context.
+  - Compact edge-targeted checkpoint with math, coding, STEM, instruction-following, and tool-use training; BF16 weights and vLLM/SGLang paths are published.
+quant_available: false

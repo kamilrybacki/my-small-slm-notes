@@ -1,0 +1,11 @@
+name: K2-Horizon-3.7B
+params: 5.06
+license: apache-2.0
+context_len: 524288
+modality: text
+release_date: 2026-09-01
+url: https://huggingface.co/IFM/K2-Horizon-3.7B
+quick_facts:
+  - Apache-2.0 dense K2 Horizon reasoning model; official card reports a 524,288-token context window.
+  - Published for efficient research and single-node serving with BF16 weights and vLLM/SGLang recipes.
+quant_available: false

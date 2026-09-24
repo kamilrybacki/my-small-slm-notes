@@ -537,5 +537,32 @@
       "116.6M causal language model trained from scratch under the BabyLM 2026 Strict word-exposure budget.",
       "Official repository includes the checkpoint, tokenizer, custom Transformers integration, and inference-reproduction source."
     ]
+  },
+  {
+    "id": "IFM/K2-Horizon-0.9B",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "Apache-2.0 dense reasoning model in IFM’s K2 Horizon family; the official model card reports up to 131,072-token context.",
+      "Compact edge-targeted checkpoint with math, coding, STEM, instruction-following, and tool-use training; BF16 weights and vLLM/SGLang paths are published."
+    ]
+  },
+  {
+    "id": "IFM/K2-Horizon-3.7B",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "Apache-2.0 dense K2 Horizon reasoning model; official card reports a 524,288-token context window.",
+      "Published for efficient research and single-node serving with BF16 weights and vLLM/SGLang recipes."
+    ]
+  },
+  {
+    "id": "IFM/K2-Horizon-7B",
+    "modality": "text",
+    "quant_available": false,
+    "quick_facts": [
+      "Apache-2.0 dense K2 Horizon model for general research and cost-conscious deployment; official card reports a 524,288-token context window.",
+      "Published BF16 weights include validated vLLM and SGLang serving recipes; reported benchmarks cover coding, reasoning, and agent tasks."
+    ]
   }
 ]

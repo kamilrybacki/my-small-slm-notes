@@ -1,0 +1,11 @@
+name: K2-Horizon-7B
+params: 9
+license: apache-2.0
+context_len: 524288
+modality: text
+release_date: 2026-09-01
+url: https://huggingface.co/IFM/K2-Horizon-7B
+quick_facts:
+  - Apache-2.0 dense K2 Horizon model for general research and cost-conscious deployment; official card reports a 524,288-token context window.
+  - Published BF16 weights include validated vLLM and SGLang serving recipes; reported benchmarks cover coding, reasoning, and agent tasks.
+quant_available: false
