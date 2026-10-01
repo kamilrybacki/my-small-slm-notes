@@ -1,0 +1,11 @@
+name: Spark-X2.5-4B
+params: 4.11
+license: apache-2.0
+context_len: 1048576
+modality: text
+release_date: 2026-08-24
+url: https://huggingface.co/XHToken/Spark-X2.5-4B
+quick_facts:
+  - Compact general-purpose language model for conversation, writing, reasoning, coding, tool use, and agent workflows.
+  - Publisher provides local inference instructions for Apple silicon, Linux CPU, and NVIDIA CUDA; official INT8 and FP8 variants are available.
+quant_available: true

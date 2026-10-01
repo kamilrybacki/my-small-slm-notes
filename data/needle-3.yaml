@@ -1,0 +1,11 @@
+name: Needle 3
+params: 0.121
+license: apache-2.0
+context_len: unknown
+modality: text
+release_date: '2026-09-16'
+url: https://huggingface.co/Cactus-Compute/needle3
+quick_facts:
+  - 29M-121M laddered text model specialized for on-device tool calling, structured extraction, and classification rather than general chat.
+  - Publisher distributes CQ2-quantized binaries sized 8-29 MB and describes deployment on mobile, embedded, and microcontroller-class devices.
+quant_available: true
